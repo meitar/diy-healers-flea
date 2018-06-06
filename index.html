@@ -1,69 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>The DIY Healer's Flea</title>
+        <title>Home - The DIY Healer&rsquo;s Flea</title>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-<style>
-
-/**
-* @group Typography.
-*/
-
-@font-face {
-    font-family: "BebasNeue";
-    src: url("fonts/BebasNeue.ttf");
-}
-@font-face {
-    font-family: "RollandinEmilie";
-    src: url("fonts/RollandinEmilie.ttf");
-}
-
-#maintitle {
-    font: 7em "RollandinEmilie", Arial;
-}
-#maintitle a {
-    color: #000;
-    text-decoration: none;
-}
-#main {
-    margin: 4em 4em 2em 4em;
-}
-#maintext {
-    margin: 4em 8em 0 8em;
-    line-height: 2em;
-}
-#maintext h1 {
-    font: 3em Arial;
-}
-#mainnav li {
-    margin-top: -0.5em;
-    list-style: none;
-    font: 1.5em Arial;
-}
-
-</style>
+        <link rel="stylesheet" href="static/css/main.css" />
     </head>
     <body>
-        <div id="main">
-            <div id="maintitle">
-                <a href="index.html">The DIY Healers Flea</a>
-            </div>
-            <div id="mainnav">
+
+        <header id="Masthead">
+            <h1>The DIY Healer&rsquo;s Flea</h1>
+            <nav id="MainNav">
                 <ul>
-                    <li><a href="participant-registration.html">Registration for Vendors, Speakers, and Healers</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="register.html">Register</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
-            </div>
-            <div id="maintext">
-                <h1>What's the DHF?</h1>
-                <p>Always free and all ages!</p>
-                <p>The DIY Healer's Flea is a way for people working in various methods of healing to come together and share their practices with fellow healers as well as the general public. We believe in fostering creative approaches, self-guided practices, and communal, mutual self-education. The Flea is a combination of vendors, speakers, healers, and you!</p>
-                <p>If you are looking to vend, speak, or heal with us, check out our <a href="participant-registration.html">participant registration page</a>.</p>
-                <h1>The Next DIY Healer's Flea:</h1>
+            </nav>
+        </header>
+
+        <main>
+            <section id="about">
+                <h2>What&rsquo;s the DHF?</h2>
+                <div class="e-content">
+                    <p>The DIY Healer&rsquo;s Flea is an all ages market with special areas for learning and healing using a creative, communal, and self-guided approach. It is free to attend, although <a href="register.html">vendors and service providers must first register</a> to reserve commercial space at the event.</p>
+                    <p>Our Fleas offer a way for people working in various methods of healing to come together and share their practices with fellow healers as well as the general public. We believe in fostering creative approaches, self-guided practices, and communal, mutual self-education. The Flea is a combination of vendors, speakers, healers, and you!</p>
+                </div>
+            </section><!-- #about -->
+
+            <section id="next-event">
+                <h2>The Next DIY Healer&rsquo;s Flea:</h2>
+                <div class="e-content">
                     <p>To be determined! Check back soon.</p>
-                <h1>This Flea's Participants:</h1>
+                </div>
+            </section><!-- #next-event -->
+
+            <section id="participants">
+                <h2>This Flea&rsquo;s Participants:</h2>
+                <div class="e-content">
                     <p>To be determined! Check back soon.</p>
-            </div>
-        </div>
+                </div>
+            </section><!-- #participants -->
+        </main>
+
+        <footer id="PageFooter">
+            <p>Copyright &copy; 2018&ndash;2018 by DIY Healer&rsquo;s Flea.</p>
+        </footer>
+
     </body>
 </html>

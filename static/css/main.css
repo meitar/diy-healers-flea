@@ -1,0 +1,70 @@
+/**
+* @group Typography.
+*/
+@font-face {
+    font-family: "BebasNeue";
+    src: url("../fonts/BebasNeue.ttf");
+}
+@font-face {
+    font-family: "RollandinEmilie";
+    src: url("../fonts/RollandinEmilie.ttf");
+}
+#Masthead h1 {
+    font: 72px/1em "RollandinEmilie", Arial;
+    margin: 0;
+    padding: 0;
+}
+#Masthead h1 a {
+    color: #000;
+    text-decoration: none;
+}
+h2 {
+    font: 32px/1em Arial;
+    margin: 0;
+    padding: 0;
+}
+p {
+    line-height: 1.75em;
+}
+#PageFooter {
+    font-size: xx-small;
+}
+
+/**
+ * @group Layout
+ */
+html, body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+body {
+    padding: 0 20px;
+}
+#Masthead {
+    padding-top: 1em;
+}
+#MainNav ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+#MainNav li {
+    display: inline-block;
+    list-style: none;
+    margin: 1em 5px 0;
+    font: 1.5em Arial;
+}
+main {
+    margin: 4em 0 2em;
+}
+section {
+    margin-top: 3em;
+}
+.e-content {
+    width: 95%;
+    margin: auto;
+}
+#PageFooter {
+    text-align: center;
+}
