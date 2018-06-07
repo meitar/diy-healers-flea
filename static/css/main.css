@@ -6,20 +6,24 @@
     src: url("../fonts/BebasNeue.ttf");
 }
 @font-face {
-    font-family: "RollandinEmilie";
-    src: url("../fonts/RollandinEmilie.ttf");
+    font-family: "SoftLine";
+    src: url("../fonts/SoftLine.otf");
 }
 #Masthead h1 {
-    font: 72px/1em "RollandinEmilie", Arial;
+    font: 80px/1em "BebasNeue", Arial;
     margin: 0;
     padding: 0;
 }
 #Masthead h1 a {
-    color: #000;
-    text-decoration: none;
+    font: 80px/1em "BebasNeue", Arial;
+    text-decoration-color: #ddd41c;
+}
+#Masthead h1 a:hover {
+    font: 80px/1em "BebasNeue", Arial;
 }
 h2 {
-    font: 32px/1em Arial;
+    font: 32px/2em "SoftLine", Arial;
+    font-weight: 700;
     margin: 0;
     padding: 0;
 }
@@ -34,6 +38,7 @@ p {
  * @group Layout
  */
 html, body {
+    background-color: #f9f9f9;
     margin: 0;
     border: 0;
     padding: 0;
@@ -42,10 +47,45 @@ body {
     padding: 0 20px;
 }
 #Masthead {
+    margin: 0 5em 0 5em;
     padding-top: 1em;
+    text-align: center;
 }
+main {
+    margin: 4em 0 2em;
+}
+section {
+    margin: -1em 5em 0 5em;
+}
+.e-content {
+    width: 95%;
+    margin: auto;
+    font: 15px "SoftLine", Arial;
+    font-weight: 700;
+}
+#PageFooter {
+    text-align: center;
+}
+
+/**
+ * @group Links
+ */
+a {
+    color: #000;
+    text-decoration: underline;
+    text-decoration-color: #f7626f;
+}
+a:hover {
+    color: #000;
+    text-decoration: overline;
+    text-decoration-color: #f7626f;
+}
+
+/**
+ * @group Main navigation.
+ */
 #MainNav ul {
-    margin: 0;
+    margin: 0 5em 0 5em;
     padding: 0;
     text-align: center;
 }
@@ -53,18 +93,15 @@ body {
     display: inline-block;
     list-style: none;
     margin: 1em 5px 0;
-    font: 1.5em Arial;
+    font: 26px/1em "BebasNeue", Arial;
 }
-main {
-    margin: 4em 0 2em;
+#MainNav a {
+    color: #000;
 }
-section {
-    margin-top: 3em;
+#MainNav a {
+    text-decoration-color: #53e8de;
 }
-.e-content {
-    width: 95%;
-    margin: auto;
-}
-#PageFooter {
-    text-align: center;
+
+#MainNav a:hover {
+    text-decoration-color: #53e8de;
 }
