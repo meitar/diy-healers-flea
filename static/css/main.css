@@ -9,59 +9,55 @@
     font-family: "SoftLine";
     src: url("../fonts/SoftLine.otf");
 }
-#Masthead h1 {
-    font: 80px/1em "BebasNeue", Arial;
+h1 {
     margin: 0;
     padding: 0;
-}
-#Masthead h1 a {
-    font: 80px/1em "BebasNeue", Arial;
-    text-decoration-color: #ddd41c;
-}
-#Masthead h1 a:hover {
     font: 80px/1em "BebasNeue", Arial;
 }
 h2 {
-    font: 32px/2em "SoftLine", Arial;
+    font: 32px/1em "SoftLine", Arial;
     font-weight: 700;
     margin: 0;
     padding: 0;
 }
 p {
-    line-height: 1.75em;
+    line-height: 1.25em;
 }
 #PageFooter {
     font-size: xx-small;
+}
+abbr {
+    cursor: help;
 }
 
 /**
  * @group Layout
  */
 html, body {
-    background-color: #f9f9f9;
     margin: 0;
     border: 0;
     padding: 0;
 }
 body {
     padding: 0 20px;
+    background-color: #f9f9f9;
+    color: #000;
 }
 #Masthead {
-    margin: 0 5em 0 5em;
-    padding-top: 1em;
+    padding-top: 2em;
     text-align: center;
 }
 main {
-    margin: 4em 0 2em;
+    margin: 2em 0;
 }
 section {
-    margin: -1em 5em 0 5em;
+    margin-top: 3em;
 }
 .e-content {
     width: 95%;
     margin: auto;
     font: 15px "SoftLine", Arial;
-    font-weight: 700;
+    font-weight: bold;
 }
 #PageFooter {
     text-align: center;
@@ -70,38 +66,32 @@ section {
 /**
  * @group Links
  */
-a {
+a, a:hover {
     color: #000;
-    text-decoration: underline;
     text-decoration-color: #f7626f;
 }
 a:hover {
-    color: #000;
     text-decoration: overline;
     text-decoration-color: #f7626f;
+}
+#Masthead h1 a {
+    text-decoration-color: #ddd41c;
 }
 
 /**
  * @group Main navigation.
  */
 #MainNav ul {
-    margin: 0 5em 0 5em;
+    margin: 1em 0 0 0;
     padding: 0;
     text-align: center;
 }
 #MainNav li {
     display: inline-block;
     list-style: none;
-    margin: 1em 5px 0;
+    margin: 0 5px .25em;
     font: 26px/1em "BebasNeue", Arial;
 }
 #MainNav a {
-    color: #000;
-}
-#MainNav a {
-    text-decoration-color: #53e8de;
-}
-
-#MainNav a:hover {
     text-decoration-color: #53e8de;
 }
