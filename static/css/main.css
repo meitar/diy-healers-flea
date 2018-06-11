@@ -44,7 +44,9 @@ p {
 abbr {
     cursor: help;
 }
-#vendor-rules em {
+#vendor-registration ol em,
+#speaker-registration ol em,
+#healer-registration ol em {
     text-decoration: underline;
     font-style: normal;
 }
@@ -83,7 +85,7 @@ section {
     #Masthead h1 {
         font-size: 120px;
     }
-    main {
+    main, #PageFooter {
         margin-left: 460px;
     }
 }
@@ -119,4 +121,26 @@ a:hover {
 }
 #MainNav a {
     text-decoration-color: #53e8de;
+}
+#MainNav .current a {
+    text-decoration: overline;
+}
+
+/**
+ * @group Pages.
+ */
+#register-page #vendor-registration,
+#register-page #speaker-registration,
+#register-page #healer-registration {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    margin-top: 0;
+}
+#register-page #vendor-registration:target,
+#register-page #speaker-registration:target,
+#register-page #healer-registration:target {
+    position: static;
+    opacity: 1;
+    transition: opacity 1s;
 }
