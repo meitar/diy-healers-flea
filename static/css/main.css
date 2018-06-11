@@ -17,6 +17,7 @@ body {
     background-color: #f8f7f4;
     color: #000;
     font-family: "Everson Mono Latin";
+    font-weight: 700;
 }
 h1 {
     position: relative;
@@ -32,6 +33,10 @@ h2 {
 }
 p {
     line-height: 1.25em;
+}
+#next-event .h-event {
+    padding: 0.5em;
+    text-align: center;
 }
 #PageFooter {
     font-size: xx-small;
