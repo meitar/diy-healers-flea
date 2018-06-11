@@ -44,6 +44,10 @@ p {
 abbr {
     cursor: help;
 }
+#vendor-rules em {
+    text-decoration: underline;
+    font-style: normal;
+}
 
 /**
  * @group Layout
