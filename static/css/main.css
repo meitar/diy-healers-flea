@@ -40,8 +40,9 @@ p {
 }
 #PageFooter {
     font-size: xx-small;
+    text-align: center;
 }
-abbr {
+#Masthead abbr {
     cursor: help;
 }
 #vendor-registration ol em,
@@ -69,9 +70,6 @@ main {
 section {
     margin-top: 2em;
 }
-#PageFooter {
-    text-align: center;
-}
 
 @media screen and (min-width: 690px) {
     body {
@@ -93,7 +91,8 @@ section {
 /**
  * @group Links
  */
-a, a:hover {
+a,
+a:hover {
     color: #ed5c0d;
     text-decoration-color: #17ccb2;
 }
@@ -143,4 +142,37 @@ a:hover {
     position: static;
     opacity: 1;
     transition: opacity 1s;
+}
+
+table.pricing {
+    width: 100%;
+    border-spacing: 1px;
+}
+table.pricing td {
+    padding: 0;
+}
+table.pricing td > span:first-child {
+    background: #f8f7f4;
+    position: relative;
+    top: 5px;
+}
+table.pricing td {
+    border-bottom: 1px dotted #000;
+}
+table.pricing th {
+    text-align: left;
+}
+table.pricing th:nth-child(2),
+table.pricing td:nth-child(2) {
+    text-align: right;
+}
+table.pricing td:nth-child(2) span::before {
+    content: "$";
+}
+table.pricing td:nth-child(2) span::after {
+    content: " USD";
+}
+table caption {
+    text-align: left;
+    margin: 1em 0;
 }
