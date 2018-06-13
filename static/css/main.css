@@ -115,8 +115,11 @@ a:hover {
 #MainNav li {
     display: inline-block;
     list-style: none;
-    margin: 0 5px .25em;
+    margin: 0 0 .25em .33em;
     font: 26px/1em "BebasNeue", Arial;
+}
+#MainNav li:first-child {
+    margin-left: 0;
 }
 #MainNav a {
     text-decoration-color: #53e8de;
