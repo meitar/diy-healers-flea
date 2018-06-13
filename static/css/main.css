@@ -144,11 +144,13 @@ a:hover {
     transition: opacity 1s;
 }
 
-table.pricing {
+table.pricing,
+#registration-window {
     width: 100%;
     border-spacing: 1px;
 }
-table.pricing td {
+table.pricing td,
+#registration-window td {
     padding: 0;
 }
 table.pricing td > span:first-child {
@@ -159,11 +161,14 @@ table.pricing td > span:first-child {
 table.pricing td {
     border-bottom: 1px dotted #000;
 }
-table.pricing th {
+table.pricing th,
+#registration-window th {
     text-align: left;
 }
 table.pricing th:nth-child(2),
-table.pricing td:nth-child(2) {
+table.pricing td:nth-child(2),
+#registration-window th:nth-child(2),
+#registration-window td:nth-child(2) {
     text-align: right;
 }
 table.pricing td:nth-child(2) span::before {
