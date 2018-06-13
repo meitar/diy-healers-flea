@@ -1,0 +1,21 @@
+#####################################################################
+# This is Jekyll's configuration file for this project.
+#
+# For more information, see the documentation:
+#
+#     https://jekyllrb.com/docs/configuration/
+#####################################################################
+
+# Site settings
+title: The DIY Healer&rsquo;s Flea
+#description: >-
+#    Uncomment this text to supply a site description.
+#    This text will be used in feeds and other metadata
+#    throughout your site.
+
+# Build settings
+markdown: kramdown
+exclude: [
+    "vendor",
+    "README.md"
+]
