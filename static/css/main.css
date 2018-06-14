@@ -51,6 +51,27 @@ p {
     text-decoration: underline;
     font-style: normal;
 }
+blockquote {
+    text-align: justify;
+}
+blockquote::before,
+blockquote::after {
+    font-size: 2em;
+    height: .5em;
+}
+blockquote::before {
+    content: "\201C";
+    float: left;
+    margin-right: 5px;
+}
+blockquote p:last-of-type::after {
+    content: "\201D";
+    font-size: 2em;
+    line-height: .5em;
+    position: relative;
+    top: .25em;
+    right: .2em;
+}
 
 /**
  * @group Layout

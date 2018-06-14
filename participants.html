@@ -4,6 +4,24 @@ title: Participants
 <section id="participants-info">
     <h2>Participants</h2>
     <div class="e-content">
+        {% if site.data.participants %}
+        <p>We are excited to announce the participants of the next DIY Healer&rsquo;s Flea!</p>
+        <ul>
+            {% for participant in site.data.participants %}
+            <li>
+                <p>Brand: {% if participant["Work website"] %}<a href="{{ participant["Work website"] }}">{% endif %}{% if participant["Your business or brand name"] %}{{ participant["Your business or brand name"] }}{% endif %}{% if participant["Your business or brand name"] %}</a>{% endif %}</p>
+                <p>Personal: {{ participant["Preferred name"] }} {% if participant["Personal website"] %}(<a href="{{ participant["Personal website"] }}">Homepage</a>){% endif %}</p>
+                <blockquote><p>{{ participant["Seller's statement"] }}</p></blockquote>
+                <p>Flagship product: {{ participant["Flagship product name"] }} {% if participant["Flagship product Web address"] %}(<a href="{{ participant["Flagship product Web address"] }}">learn more</a>){% endif %}</p>
+                {% if participant["Facebook"] %}<p>Facebook: <a href="{{ participant["Facebook"] }}">{{ participant["Facebook"] | split: "/" | last }}</a></p>{% endif %}
+                {% if participant["Instagram"] %}<p>Instagram: <a href="{{ participant["Instagram"] }}">{{ participant["Instagram"] | split: "/" | last }}</a></p>{% endif %}
+                {% if participant["Twitter"] %}<p>Twitter: <a href="{{ participant["Twitter"] }}">{{ participant["Twitter"] | split: "/" | last }}</a></p>{% endif %}
+                {% if participant["Tumblr"] %}<p>Tumblr: <a href="{{ participant["Tumblr"] }}">{{ participant["Tumblr"] | split: "/" | last }}</a></p>{% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+        {% else %}
         <p>Participants for the next DIY-HF have not yet been announced. <a href="register.html">Apply now</a> to reserve your space, and check back soon to view the approved participant list.</p>
+        {% endif %}
     </div>
 </section>
