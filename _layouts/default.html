@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{%if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="{{ "static/css/main.css" | relative_url }}" />
+    </head>
+    <body id="{{ page.title | slugify }}-page">
+
+        <header id="Masthead">
+            <h1><a href="{{ "index.html" | relative_url }}">The DIY<br />Healer&rsquo;s<br />Flea</a></h1>
+            <p><abbr title="Do-It-Yourself">DIY</abbr> stands for Do-It-Yourself, but that doesn't mean you have to <em>be by</em> yourself.</p>
+            <nav id="MainNav">
+                {% include mainnav.html %}
+            </nav>
+        </header>
+
+        <main>{{ content }}</main>
+
+        <footer id="PageFooter">
+            <p>Copyright &copy; is for suckers.</p>
+        </footer>
+
+    </body>
+</html>
