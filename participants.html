@@ -1,14 +1,43 @@
 ---
 title: Participants
+category_whitelist:
+  - "Apparel"
+  - "Art"
+  - "Bath products"
+  - "Electronics"
+  - "Fragrances"
+  - "Herbal remedies"
+  - "Jewelry"
+  - "Literature"
+  - "Perfumes"
+  - "Skincare"
+  - "Synthesized medication"
 ---
 <section id="participants-info">
     <h2>Participants</h2>
     <div class="e-content">
         {% if site.data.participants %}
-        <p>We are excited to announce the participants of the next DIY Healer&rsquo;s Flea!</p>
-        <ul>
+        <p>We are excited to announce the participants of the next DIY Healer&rsquo;s Flea! This Healer&rsquo;s Flea will include products in the following categories:</p>
+        <ul class="category-list">
+            {% assign categories = "" | split: "" %}
             {% for participant in site.data.participants %}
-            <li>
+                {% assign cat = participant["Product category"] | split: "," %}
+                {% for c in cat %}
+                    {% assign x = c | strip %}
+                    {% assign categories = categories | push: x  %}
+                {% endfor %}
+            {% endfor %}
+            {% for category in categories %}
+            {% if page.category_whitelist contains category %}<li>{{ category }}</li>{% endif %}
+            {% endfor %}
+            <li>&hellip;and more!</li>
+        </ul>
+        <p>This Healer&rsquo;s Flea will feature the following brands and indie vendors:</p>
+        <ul>
+            {% assign participants = site.data.participants | sort: "Your business or brand name" %}
+            {% for participant in participants %}
+            {% assign categories = participant["Product category"] | split: "," %}
+            <li class="{% for category in categories %}category-{{ category | strip | slugify }} {% endfor %}">
                 <p>Brand: {% if participant["Work website"] %}<a href="{{ participant["Work website"] }}">{% endif %}{% if participant["Your business or brand name"] %}{{ participant["Your business or brand name"] }}{% endif %}{% if participant["Your business or brand name"] %}</a>{% endif %}</p>
                 <p>Personal: {{ participant["Preferred name"] }} {% if participant["Personal website"] %}(<a href="{{ participant["Personal website"] }}">Homepage</a>){% endif %}</p>
                 <blockquote><p>{{ participant["Seller's statement"] }}</p></blockquote>
