@@ -26,3 +26,21 @@ defaults:
       path: "" # an empty string here means all files in the project
     values:
       layout: default
+
+# Start and end times for the next event, used throughout the
+# website in various areas. Please use a precise format.
+next_event_dt_start: "2018-06-24T15:00:00"
+next_event_dt_end:   "2018-06-24T20:00:00"
+
+payments:
+  prices:
+    vending:
+      -
+        item_name: "Small"
+        item_cost: "20.00"
+      -
+        item_name: "Large"
+        item_cost: "30.00"
+  processors:
+    paypal:
+      user_id: emilymakesphotos@gmail.com

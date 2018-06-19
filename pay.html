@@ -1,9 +1,55 @@
 ---
-title: Pay
+title: Pay and Donate
 ---
 <section id="pay-info">
-    <h2>Payment</h2>
+    <h2>Payment and Donations</h2>
     <div class="e-content">
-        <p>We require payment in order to reserve your space at the next DIY-HF.</p>
+        <p>Thank you so much for your interest in the DIY Healer&rsquo;s Flea!</p>
+        <p>We require vendors and healers to send payment in order to reserve space at the next DIY-HF. As an approved applicant, you should <em>use this page to pay for your space via the service of your choice</em>. Please follow the instructions regarding <a href="#how-to-pay">how to pay</a> carefully to ensure the fastest reservation possible.</p>
+        <h3 id="how-to-pay">How to Pay</h3>
+        <p>Follow these instructions carefully to ensure your payment is successul and your reservation is processed in the shortest amount of time.</p>
+        <ol>
+            <li>Determine how much you need to pay; refer to <a href="{{ "/index.html#fees-and-pricing" | relative_url }}">our price list</a> for details.</li>
+            <li>Click a &ldquo;Pay via&hellip;&rdquo; payment link from the <a href="#payment-options">payment options</a> below. (Sorry, we only accept payments in the ways linked from this page; no personal cheques.)</li>
+            <li>Complete the payment form; you will be returned to this page when your payment is successful and has begun to process.</li>
+        </ol>
+        {% assign return = page.url | append: "#vendor-payment-thank-you" %}
+        <h3>Pay</h3>
+        <ul id="payment-options">
+            <li><a href="{% include paypal-url.j2 return=return %}">Pay via PayPal</a></li>
+        </ul>
+        <h3 id="donate">Donate</h3>
+        <p>You may also use this page to send an in-kind donation to support our work on the DIY Healer&rsquo;s Fleas. Your donations help us improve future Fleas by securing larger venues, supporting awesome speakers, and more. Donations have no effect on any reservation you may have.</p>
+        <ul id="donation-options-list">
+            <li><a href="https://www.paypal.me/floraposidonia" title="Donate via PayPal"><img src="{{ "static/img/qr.donate.paypal.132x132.gif" | relative_url }}" alt="Donate via PayPal" /></a></li>
+            <li><a href="https://venmo.com/Emily-Heinz" title="Donate via Venmo"><img src="{{ "static/img/qr.donate.venmo.132x132.gif" | relative_url }}" alt="Donate via Venmo" /></a></li>
+            <li><a href="https://cash.me/%24seaverses" title="Donate via Square Cash"><img src="{{ "static/img/qr.donate.square-cash.132x132.gif" | relative_url }}" alt="Donate via Square Cash" /></a></li>
+        </ul>
+    </div>
+</section>
+
+<section id="cancelled-payment" class="overlay">
+    <h2>You Cancelled Your Payment</h2>
+    <div class="e-content">
+        <p>You have cancelled your payment. No funds have been transferred.</p>
+        <p><a href="{{ page.url | relative_url }}">Return to payment page</a>.</p>
+    </div>
+</section>
+
+<section id="donation-thank-you" class="overlay">
+    <h2>Thank you so much for your donation!</h2>
+    <div class="e-content">
+        <p>Thank you for donating to support our work on the DIY Healer&rsquo;s Flea!</p>
+        <p><a href="{{ "/" | relative_url }}">Return to website</a>.</p>
+    </div>
+</section>
+
+<section id="vendor-payment-thank-you" class="overlay">
+    <h2>Your payment for vendor space has been received!</h2>
+    <div class="e-content">
+        <p>Thank you for your payment to reserve your vending space.</p>
+        <p>Please allow 48 to 72 hours for processing, by which time you should receive a confirmation to your application email address with further details.</p>
+        <p>Thank you again!</p>
+        <p><a href="{{ "/" | relative_url }}">Return to website</a>.</p>
     </div>
 </section>

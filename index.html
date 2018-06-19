@@ -16,17 +16,18 @@ title: Home
         <div class="e-content">
             <div id="next-event-banner">
                 <p>
-                    <abbr title="2018-06-24T15:00:00" class="dt-start dtstart">Sunday, June 24<sup>th</sup> from 3:00</abbr>&ndash;<abbr title="2018-06-24T20:00:00" class="dt-end dtend">8:00pm</abbr>
+                    <abbr title="{{ site.next_event_dt_start | date_to_xmlschema }}" class="dt-start dtstart">{{ site.next_event_dt_start | date: "%A, %B %e %Y" }} from {{ site.next_event_dt_start | date: "%l:%M%P" | strip }}</abbr>&ndash;<abbr title="{{ site.next_event_dt_end | date_to_xmlschema }}" class="dt-end dtend">{{ site.next_event_dt_end | date: "%l:%M%P" | strip }}</abbr>
                     at <abbr class="p-location location" title="936 Madison Street, Brooklyn, NY 11221">The Earth Arts Center</abbr>.
                 </p>
                 <p>
                     <a href="http://h2vx.com/ics/{{ page.url | absolute_url | url_encode }}">Download Event Info To Your Calendar</a>
                 </p>
             </div><!-- #next-event-banner -->
-            <h3>Fees and pricing</h3>
+            <h3 id="fees-and-pricing">Fees and pricing</h3>
             <p>
                 Vendors must pay a non-refundable table fee in order to vend.
             </p>
+            {% if site.payments.prices.vending %}
             <table class="pricing">
                 <caption>Vendor tabling fee (shown in <abbr title="United States Dollars">USD</abbr>).</caption>
                 <thead>
@@ -36,16 +37,15 @@ title: Home
                     </tr>
                 </thead>
                 <tbody>
+                    {% for x in site.payments.prices.vending %}
                     <tr>
-                        <td><span>Small</span></td>
-                        <td><span>20.00</span></td>
+                        <td><span>{{ x.item_name }}</span></td>
+                        <td><span>{{ x.item_cost }}</span></td>
                     </tr>
-                    <tr>
-                        <td><span>Large</span></td>
-                        <td><span>30.00</span></td>
-                    </tr>
+                    {% endfor %}
                 </tbody>
             </table><!-- .pricing -->
+            {% endif %}
             <p><small>Vendor fees are partially dependent upon the host venue, and are subject to change without notice after each event. Please double-check the fee here before registering!</small><p>
             <a href="{{ "register.html#vendor-registration" | relative_url }}">Apply now</a> to reserve your vending space.
             </p>

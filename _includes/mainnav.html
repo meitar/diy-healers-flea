@@ -1,6 +1,6 @@
 <ul>
     <li{% if page.name == "index.html" %} class="current"{% endif %}><a href="{{ "index.html" | relative_url }}">Home</a></li>
     <li{% if page.name == "register.html" %} class="current"{% endif %}><a href="{{ "register.html" | relative_url }}">Register</a></li>
-    {% if page.name == "pay.html" %}<li class="current"><a href="{{ "pay.html" | relative_url }}">Pay</a></li>{% endif %}{% comment %}Hide this item unless it is the current page. :){% endcomment %}
+    {% if page.name == "pay.html" %}<li class="current"><a href="{{ "pay.html" | relative_url }}">Pay &amp; Donate</a></li>{% endif %}{% comment %}Hide this item unless it is the current page. :){% endcomment %}
     <li{% if page.name == "participants.html" %} class="current"{% endif %}><a href="{{ "participants.html" | relative_url }}">Participants</a></li>
 </ul>
