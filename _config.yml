@@ -12,6 +12,7 @@ title: The DIY Healer&rsquo;s Flea
 #    Uncomment this text to supply a site description.
 #    This text will be used in feeds and other metadata
 #    throughout your site.
+timezone: "America/New_York"
 
 # Build settings
 markdown: kramdown
