@@ -28,9 +28,12 @@ defaults:
       layout: default
 
 # Start and end times for the next event, used throughout the
-# website in various areas. Please use a precise format.
-next_event_dt_start: "2018-06-24T15:00:00"
-next_event_dt_end:   "2018-06-24T20:00:00"
+# website in various areas. Please use a native Ruby format.
+next_event:
+  event_dt_start:     2018-06-24 15:00:00 -0400
+  event_dt_end:       2018-06-24 20:00:00 -0400
+  applications_open:  2018-06-01 00:00:00 -0400
+  applications_close: 2018-06-20 00:00:00 -0400
 
 payments:
   prices:

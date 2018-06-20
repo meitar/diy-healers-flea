@@ -6,12 +6,17 @@ title: Register
     <p>
         Interested in vending, speaking, or healing at the next DIY-HF? Wonderful! We would love to have you. First, take a look at the rules and guidelines below, and please keep in mind that by applying to be a participant, you are agreeing to the following terms as we have outlined them.
     </p>
+    <p>The next DIY Healer&rsquo;s Flea is scheduled for:</p>
+    <ul>
+        <li>{{ site.next_event.event_dt_start | date: "%A, %B %e %Y" }}</li>
+    </ul>
+    <p>All applications we receive will be considered for the above date.</p>
     <h3>Application Overview</h3>
     <div class="e-content">
         <ol>
             <li>
                 <p>
-                By applying for the DIY-HF, you agree to all stipulations and requests made by the host venue. Any behavior deemed disrespectful or that goes against the policies of the host venue will result in a permanent ban from participating in future fleas, so make sure you review the guidelines provided by the host venue, which are included <a href="{{ "index.html" | relative_url }}">on the home page with the information for the next upcoming flea</a>.
+                    By applying for the DIY-HF, you agree to all stipulations and requests made by the host venue. Any behavior deemed disrespectful or that goes against the policies of the host venue will result in a permanent ban from participating in future fleas, so make sure you review the guidelines provided by the host venue, which are included <a href="{{ "/" | relative_url }}">on the home page with the information for the next upcoming flea</a>.
                 </p>
             </li>
             <li>
@@ -25,7 +30,9 @@ title: Register
                 </p>
             </li>
         </ol>
-        <p>We process applications in batches several weeks to a month prior to the next event. Application windows are shown in the table below. You can only apply for the upcoming event; to apply for a farther future event, please wait until the current application deadline has passed.</p>
+        <p>
+            We process applications in batches several weeks to a month prior to the next event. Application windows are shown in the table below. You can only apply for the upcoming event; to apply for a farther future event, please wait until the current application deadline has passed.
+        </p>
         <table id="registration-window">
             <caption>DIY Healer&rsquo;s Flea application window</caption>
             <thead>
@@ -36,8 +43,8 @@ title: Register
             </thead>
             <tbody>
                 <tr>
-                    <td>June 1, 2018 12:00 AM</td>
-                    <td>June 20, 2018 12:00 AM</td>
+                    <td>{{ site.next_event.applications_open | date: "%B %e, %Y %l:%M %p" }}</td>
+                    <td>{{ site.next_event.applications_close | date: "%B %e, %Y %l:%M %p" }}</td>
                 </tr>
             </tbody>
         </table>
@@ -82,10 +89,10 @@ title: Register
             <li><p>Speakers <em>are</em> encouraged to make announcements for their upcoming workshops or events.</p></li>
         </ol>
         <p>
-            Speaker applications are currently closed; please check back soon after the next DIY-HF.
             <!--
             Proceed to the <a href="">Speaker Application</a>.
             -->
+            Speaker applications are currently closed; please check back soon after the next DIY-HF.
         </p>
     </div>
 </section>
@@ -101,10 +108,10 @@ title: Register
             <li><p>Healers <em>must</em> ask for consent from all participants before engaging in any healing practices and <em>must</em> allow clients to opt out at any time. Failure to abide by this guideline will result in a permanent ban and potential legal action.</p></li>
         </ol>
         <p>
-            Healer applications are currently closed; please check back soon after the next DIY-HF.
         <!--
             Proceed to the <a href="">Healer Application</a>.
         -->
+            Healer applications are currently closed; please check back soon after the next DIY-HF.
         </p>
     </div>
 </section>

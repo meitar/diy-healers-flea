@@ -1,4 +1,4 @@
-{%- assign default_item_number = site.next_event_dt_start | date_to_xmlschema | date: "%Y%m%d" -%}
+{%- assign default_item_number = site.next_event.event_dt_start | date: "%Y%m%d" -%}
 https://www.paypal.com/cgi-bin/webscr?cmd=
 {%- if include.donation -%}_donations{%- else -%}_xclick{%- endif -%}
 &amp;business={{- site.payments.processors.paypal.user_id | cgi_escape -}}
