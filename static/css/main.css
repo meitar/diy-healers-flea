@@ -136,7 +136,7 @@ a:hover {
 #MainNav li {
     display: inline-block;
     list-style: none;
-    margin: 0 0 .25em .33em;
+    margin: 0 0 .25em 0;
     font: 26px/1em "BebasNeue", Arial;
 }
 #MainNav li:first-child {
@@ -210,6 +210,8 @@ table caption {
  * @group Payment page.
  */
 #donation-options-list {
+    margin: 0;
+    padding: 0;
     list-style: none;
     text-align: center;
 }
