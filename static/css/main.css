@@ -51,9 +51,6 @@ p {
     text-decoration: underline;
     font-style: normal;
 }
-blockquote {
-    text-align: justify;
-}
 blockquote::before,
 blockquote::after {
     font-size: 2em;
