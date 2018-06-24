@@ -31,20 +31,19 @@ defaults:
 # Start and end times for the next event, used throughout the
 # website in various areas. Please use a native Ruby format.
 next_event:
-  event_dt_start:     2018-06-24 15:00:00 -0400
-  event_dt_end:       2018-06-24 20:00:00 -0400
-  applications_open:  2018-06-01 00:00:00 -0400
-  applications_close: 2018-06-20 00:00:00 -0400
+  event_venue_name:   "Trans Pecos"
+  event_venue_addr:   "915 Wyckoff Avenue, Queens, NY 11385"
+  event_dt_start:     2018-07-28 12:00:00 -0400
+  event_dt_end:       2018-07-28 19:00:00 -0400
+  applications_open:  2018-06-25 00:00:00 -0400
+  applications_close: 2018-07-14 00:00:00 -0400
 
 payments:
   prices:
     vending:
       -
-        item_name: "Small"
-        item_cost: "20.00"
-      -
-        item_name: "Large"
-        item_cost: "30.00"
+        item_name: "Vending space"
+        item_cost: "45.00"
   processors:
     paypal:
       user_id: emilymakesphotos@gmail.com
