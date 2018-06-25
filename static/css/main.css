@@ -254,11 +254,17 @@ section.overlay h2 {
     margin-top: 2em;
 }
 
-#featured-image {
+figure {
     margin: 0;
     padding: 0;
     font-size: smaller;
 }
 #featured-image img {
     border-radius: 1em;
+}
+
+#press-kit ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
