@@ -50,3 +50,16 @@ payments:
   processors:
     paypal:
       user_id: emilymakesphotos@gmail.com
+
+category_whitelist:
+  - "Apparel"
+  - "Art"
+  - "Bath products"
+  - "Electronics"
+  - "Fragrances"
+  - "Herbal remedies"
+  - "Jewelry"
+  - "Literature"
+  - "Perfumes"
+  - "Skincare"
+  - "Synthesized medication"
