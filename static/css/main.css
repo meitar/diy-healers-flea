@@ -34,6 +34,9 @@ h2 {
 p {
     line-height: 1.25em;
 }
+li {
+    margin: 1em 0;
+}
 #next-event-banner {
     padding: 0.5em;
     text-align: center;
