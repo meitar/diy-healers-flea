@@ -4,9 +4,13 @@ title: Press Kit
 
 <section id="press-kit">
     <h2>Press Kit</h2>
+    <ol>
+        <li><a href="#social-media-banners">Social Media Banners</a></li>
+        <li><a href="#event-descriptions">Event Descriptions</a></li>
+    </ol>
     <div class="e-content">
         <p>We&rsquo;ve prepared the following materials to make it easy for you to promote the next  DIY Healer&rsquo;s Flea. Whether you&rsquo;re a venue, a vendor, or a speaker, please use the images and other media on this page to share the DIY Healer&rsquo;s Flea with your friends and neighbors.</p>
-        <h3>Social Media Banners</h3>
+        <h3 id="social-media-banners">Social Media Banners</h3>
         <p>Use these banners in your social media postings and event listings:</p>
         <ul>
             <li>
@@ -18,5 +22,33 @@ title: Press Kit
                 </figure>
             </li>
         </ul>
+        <h3 id="event-descriptions">Event Descriptions</h3>
+        <p>The next DIY Healer&rsquo;s Flea will be on {{ site.next_event.dt_start | date: "%A, %B %e %Y %l:%M%P" }}&ndash;{{ site.next_event.dt_end | date: "%l:%M%P" | strip }}. Take these descriptions for event descriptions, tweets, and other places where you&rsquo;d like to promote the next DIY Healer&rsquo;s Flea.</p>
+        <dl>
+            <dt>
+                <p>Twitter (click to tweet)</p>
+            </dt>
+            <dd>
+                <p>
+                    <a href="https://twitter.com/intent/tweet?text=The+next+DIY+Healer%27s+Flea+is+coming+up%21+{{ site.url | absolute_url | cgi_escape }}%2F+Do-it-yourself%2C+together.">The next DIY Healer&rsquo;s Flea is coming up {{ site.url | absolute_url }} Do-it-yourself, together.</a>
+                </p>
+            </dd>
+            <dd>
+                <p>
+                <a href="https://twitter.com/intent/tweet?text=Getting+excited+for+the+next+DIY+Healer%27s+Flea+on+{{ site.next_event.dt_start | date: "%B %e" | cgi_escape }}+at+{{ site.next_event.dt_start | date: "%l:%M%P" | cgi_escape }}%21+{{ site.url | absolute_url | cgi_escape }}">Getting excited for the next DIY Healer&rsquo;s Flea on {{ site.next_event.dt_start | date: "%B %e" }} at {{ site.next_event.dt_start | date: "%l:%M%P" }}! {{ site.url | absolute_url }}</a>
+                </p>
+            </dd>
+            <dt>
+                <p>Facebook (copy and paste)</p>
+            </dt>
+            <dd>
+                <p>DIY stands for Do-It-Yourself, but that doesn't mean you have to be by yourself.</p>
+                <p>The DIY Healer’s Flea is an all-ages market that incorporates public education on healing practices using a creative, communal, and self-guided approach.</p>
+                <p>It is free to attend, although vendors and service providers must first register to reserve space at the event.</p>
+                <p>The Flea offers a way for people working in various methods of healing to come together and share their practices with fellow healers as well as the general public.</p>
+                <p>For more info or to register as a vendor, speaker, or healer, visit:</p>
+                <p>{{ site.url | absolute_url }}</p>
+            </dd>
+        </dl>
     </div>
 </section>
