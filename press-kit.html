@@ -5,11 +5,25 @@ title: Press Kit
 <section id="press-kit">
     <h2>Press Kit</h2>
     <ol>
+        <li><a href="#the-next-event">The Next Event</a></li>
         <li><a href="#social-media-banners">Social Media Banners</a></li>
         <li><a href="#event-descriptions">Event Descriptions</a></li>
     </ol>
     <div class="e-content">
         <p>We&rsquo;ve prepared the following materials to make it easy for you to promote the next  DIY Healer&rsquo;s Flea. Whether you&rsquo;re a venue, a vendor, or a speaker, please use the images and other media on this page to share the DIY Healer&rsquo;s Flea with your friends and neighbors.</p>
+        <h3 id="the-next-event">The next DIY Healer&rsquo;s Flea will be:</h3>
+        <ul style="list-style: disc; margin: 0 0 0 1em;">
+            <li>
+                <p>
+                    When: {{ site.next_event.dt_start | date: "%A, %B %e %Y %l:%M%P" }}&ndash;{{ site.next_event.dt_end | date: "%l:%M%P" | strip }}
+                </p>
+            </li>
+            <li>
+                <p>
+                    Where: {{ site.next_event.venue.name }} ({{ site.next_event.venue.location }})
+                </p>
+            </li>
+        </ul>
         <h3 id="social-media-banners">Social Media Banners</h3>
         <p>Use these banners in your social media postings and event listings:</p>
         <ul>
@@ -31,7 +45,7 @@ title: Press Kit
             </li>
         </ul>
         <h3 id="event-descriptions">Event Descriptions</h3>
-        <p>The next DIY Healer&rsquo;s Flea will be on {{ site.next_event.dt_start | date: "%A, %B %e %Y %l:%M%P" }}&ndash;{{ site.next_event.dt_end | date: "%l:%M%P" | strip }}. Take these descriptions for event descriptions, tweets, and other places where you&rsquo;d like to promote the next DIY Healer&rsquo;s Flea.</p>
+        <p>Copy these texts for event descriptions, tweets, and other places where you&rsquo;d like to promote the next DIY Healer&rsquo;s Flea.</p>
         <dl>
             <dt>
                 <p>Twitter (click to tweet)</p>
@@ -51,11 +65,21 @@ title: Press Kit
             </dt>
             <dd>
                 <p>DIY stands for Do-It-Yourself, but that doesn't mean you have to be by yourself.</p>
-                <p>The DIY Healer’s Flea is an all-ages market that incorporates public education on healing practices using a creative, communal, and self-guided approach.</p>
-                <p>It is free to attend, although vendors and service providers must first register to reserve space at the event.</p>
+                <p>The DIY Healer’s Flea is an all-ages, no cover market that incorporates public education on healing practices using a creative, communal, and self-guided approach.</p>
                 <p>The Flea offers a way for people working in various methods of healing to come together and share their practices with fellow healers as well as the general public.</p>
-                <p>For more info or to register as a vendor, speaker, or healer, visit:</p>
-                <p>{{ site.url | absolute_url }}</p>
+                {% if site.data.participants %}
+                <p>This DIY Healer&rsquo;s Flea features {% include featured-categories.html tag="span" after=", " %} and more from the following vendors:</p>
+                <p>
+                    {% assign participants = site.data.participants | sort: "Your business or brand name" %}
+                    {% for participant in participants %}
+                    {{ participant["Your business or brand name"] }}{% if participant["Work website"] %} - {{ participant["Work website"] }}{% endif %}<br />
+                    {% endfor %}
+                </p>
+                {% endif %}
+                <p>
+                    For more information or if you&rsquo;re interested in registering as a vendor, speaker, or healer, visit:<br />
+                    {{ site.url | absolute_url }}
+                </p>
             </dd>
         </dl>
     </div>

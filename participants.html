@@ -1,17 +1,5 @@
 ---
 title: Participants
-category_whitelist:
-  - "Apparel"
-  - "Art"
-  - "Bath products"
-  - "Electronics"
-  - "Fragrances"
-  - "Herbal remedies"
-  - "Jewelry"
-  - "Literature"
-  - "Perfumes"
-  - "Skincare"
-  - "Synthesized medication"
 ---
 
 {% include featured-image.html src="static/img/2018-06-24-diy-healers-flea-vending-2.jpeg" alt="" caption="Vendors line a corner market. From left to right: <a href='https://saveonscents.com/'>Save On Scents</a>, <a href='https://www.etsy.com/shop/ascalchemical'>Asc Alchemical</a>." %}
@@ -22,17 +10,7 @@ category_whitelist:
         {% if site.data.participants %}
         <p>We are excited to announce the participants of the next DIY Healer&rsquo;s Flea! This Healer&rsquo;s Flea will include products in the following categories:</p>
         <ul class="category-list">
-            {% assign categories = "" | split: "" %}
-            {% for participant in site.data.participants %}
-                {% assign cat = participant["Product category"] | split: "," %}
-                {% for c in cat %}
-                    {% assign x = c | strip %}
-                    {% assign categories = categories | push: x  %}
-                {% endfor %}
-            {% endfor %}
-            {% for category in categories %}
-            {% if page.category_whitelist contains category %}<li>{{ category }}</li>{% endif %}
-            {% endfor %}
+            {% include featured-categories.html tag="li" %}
             <li>&hellip;and more!</li>
         </ul>
         <p>This Healer&rsquo;s Flea will feature the following brands and indie vendors:</p>
