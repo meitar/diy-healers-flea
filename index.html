@@ -19,8 +19,8 @@ title: Home
         <div class="e-content">
             <div id="next-event-banner">
                 <p>
-                    <abbr title="{{ site.next_event.event_dt_start | date_to_xmlschema }}" class="dt-start dtstart">{{ site.next_event.event_dt_start | date: "%A, %B %e %Y" }} from {{ site.next_event.event_dt_start | date: "%l:%M%P" | strip }}</abbr>&ndash;<abbr title="{{ site.next_event.event_dt_end | date_to_xmlschema }}" class="dt-end dtend">{{ site.next_event.event_dt_end | date: "%l:%M%P" | strip }}</abbr>
-                    at <abbr class="p-location location" title="{{ site.next_event.event_venue_addr }}">{{ site.next_event.event_venue_name }}</abbr>.
+                    <abbr title="{{ site.next_event.dt_start | date_to_xmlschema }}" class="dt-start dtstart">{{ site.next_event.dt_start | date: "%A, %B %e %Y" }} from {{ site.next_event.dt_start | date: "%l:%M%P" | strip }}</abbr>&ndash;<abbr title="{{ site.next_event.dt_end | date_to_xmlschema }}" class="dt-end dtend">{{ site.next_event.dt_end | date: "%l:%M%P" | strip }}</abbr>
+                    at <abbr class="p-location location" title="{{ site.next_event.venue.location }}">{% if site.next_event.venue.link %}<a href="{{ site.next_event.venue.link }}">{% endif %}{{ site.next_event.venue.name }}{% if site.next_event.venue.link %}</a>{% endif %}</abbr>{% if site.next_event.venue.map_link %} (<a href="{{ site.next_event.venue.map_link }}">map</a>){% endif %}.
                 </p>
                 <p>
                     <a href="http://h2vx.com/ics/{{ page.url | absolute_url | url_encode }}">Download Event Info To Your Calendar</a>
