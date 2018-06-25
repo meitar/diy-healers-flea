@@ -1,0 +1,4 @@
+<figure id="featured-image">
+    <img src="{{ include.src | relative_url }}" alt="{{ include.alt }}" width="100%" />
+    {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>

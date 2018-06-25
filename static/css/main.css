@@ -255,5 +255,10 @@ section.overlay h2 {
 }
 
 #featured-image {
+    margin: 0;
+    padding: 0;
+    font-size: smaller;
+}
+#featured-image img {
     border-radius: 1em;
 }
