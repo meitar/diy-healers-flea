@@ -253,3 +253,42 @@ section.overlay .e-content {
 section.overlay h2 {
     margin-top: 2em;
 }
+
+/**
+ * @group Home page carousel.
+ */
+#carousel {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    position: relative;
+    width: 100%;
+}
+#carousel li {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+#carousel li:first-of-type {
+    position: static;
+}
+#carousel img {
+    border-radius: 1em;
+    opacity: 0;
+}
+#carousel li:first-of-type img {
+    animation: fade-in 15s 0s infinite;
+}
+#carousel li:nth-of-type(2) img {
+    animation: fade-in 15s 7.5s infinite;
+}
+#carousel li:nth-of-type(3) img {
+    animation: fade-in 15s 15s infinite;
+}
+#carousel li:nth-of-type(4) img {
+    animation: fade-in 15s 22.5s infinite;
+}
+@keyframes fade-in {
+    from { opacity: 0 }
+    to { opacity: 1; }
+}
