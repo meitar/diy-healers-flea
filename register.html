@@ -51,7 +51,7 @@ title: Register
                 </tr>
             </tbody>
         </table>
-        <p>Please note the application deadline is midnight, which means you must submit your application <em>before</em> the date shown. For instance, an application deadline of June 20, 2018 12:00 AM means applications must be submitted <em>no later than</em> June 19, 2018 11:59 PM. <em>We make no exceptions for late submissions.</em></p>
+        <p><small>Please note the application deadline is midnight, which means you must submit your application <em>before</em> the date shown. For instance, an application deadline of {{ site.next_event.applications_close | date: "%B %e, %Y %l:%M %p" }} means applications must be submitted <em>no later than</em> {{ site.next_event.applications_close | date: "%s" | minus: 1 | date: "%B %e, %Y %l:%M %p" }}. <em>We make no exceptions for late submissions.</em></small></p>
         <p>
             Apply now:
         </p>
