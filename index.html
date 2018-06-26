@@ -33,8 +33,76 @@ title: Home
                     <p><a href="{{ "venue.html" | relative_url }}">Read more about {{ site.next_event.venue_name }}</a>.</p>
                 </div>
                 {% endif %}
+                {% if site.data.speakers %}
+                <table id="presentation-schedule">
+                    <caption>{{ site.title  }} Presentation Schedule</caption>
+                    {% assign session_number = 1 %}
+                    <thead>
+                        <tr>
+                            <th>
+                                Time slot
+                            </th>
+                            {% assign space_codes = site.data.speakers | map: "Space code" | uniq %}
+                            {% for space_code in space_codes %}
+                            <th>
+                                Space {{ space_code }}
+                            </th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% assign time_slots = site.data.speakers | map: "Presentation start" | uniq %}
+                        {% for time_slot in time_slots %}
+                        <tr>
+                            <th>
+                                {{ time_slot | date: "%l:%M%P" }}
+                            </th>
+                            {% assign sessions = site.data.speakers | where: "Presentation start", time_slot %}
+                            {% for space_code in space_codes %}
+                            <td>
+                                {% assign session = sessions | where: "Space code", space_code | first %}
+                                {% if session %}
+                                <div id="speaker-event-{{ session_number }}" class="h-event-container"><div class="h-event vevent">
+                                    <img class="hidden p-attach" src="{{ session["Presentation image"] }}" alt="" />
+                                    <h3 class="p-name p-summary summary"><a href="#speaker-event-{{ session_number }}">{{ session["Presentation title"] }}</a></h3>
+                                    <ul class="hidden">
+                                        <li>
+                                            From <abbr class="dt-start dtstart" title="{{ site.next_event.dt_start | date: "%Y-%m-%d" }}T{{ session["Presentation start"] | date: "%T%z" }}">{{ session["Presentation start"] | date: "%l:%M%P" | strip }}</abbr>
+                                        </li>
+                                        {% assign duration_in_seconds = 60 | times: session["Presentation duration (minutes)"] %}
+                                        {% assign presentation_end = session["Presentation start"] | date: "%s" | plus: duration_in_seconds %}
+                                        <li>
+                                            to <abbr class="dt-end dtend" title="{{ site.next_event.dt_start | date: "%Y-%m-%d" }}T{{ session["Presentation start"] | date: "%T%z" }}">{{ presentation_end | date: "%l:%M%P" | strip }}</abbr>
+                                        </li>
+                                        <li>
+                                            in <span class="p-location location">Space {{ session["Space code"] }}</span>.
+                                        </li>
+                                    </ul>
+                                    <div class="hidden p-description description">
+                                        <blockquote>
+                                            <p>{{ session["Presentation description"] }}</p>
+                                        </blockquote>
+                                        <h4>About the presenter</h4>
+                                        <p>{{ session["Presenter bio"] }}</p>
+                                    </div>
+                                    {% if session["Work website"] %}
+                                    <p class="hidden">
+                                        <a class="u-url url" href="{{ session["Work website"] }}">Visit {{ session["Preferred name"] }}&rsquo;s website</a>.
+                                    </p>
+                                    {% endif %}
+                                </div><!-- .h-event.vevent --></div><!-- .h-event-container -->
+                                {% endif %}
+                            </td>
+                            {% assign session_number = session_number | plus: 1 %}
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                {% endif %}
                 <p>
-                    <a href="http://h2vx.com/ics/{{ page.url | absolute_url | url_encode }}">Download Event Info To Your Calendar</a>
+                    <a href="webcal://h2vx.com/ics/{{ page.url | absolute_url | url_encode }}"><img src="{{ "static/img/icon.calendar.svg" | relative_url }}" alt="Subscribe to {{ site.title }} events" width="20" /></a>
+                    <a href="http://h2vx.com/ics/{{ page.url | absolute_url | url_encode }}" title="Save an .ics file of the next event.">Add to Calendar</a>
                 </p>
             </div><!-- #next-event-banner -->
             <h3 id="fees-and-pricing">Fees and pricing</h3>
