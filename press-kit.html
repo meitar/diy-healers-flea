@@ -46,41 +46,35 @@ title: Press Kit
         </ul>
         <h3 id="event-descriptions">Event Descriptions</h3>
         <p>Copy these texts for event descriptions, tweets, and other places where you&rsquo;d like to promote the next DIY Healer&rsquo;s Flea.</p>
-        <dl>
-            <dt>
-                <p>Twitter (click to tweet)</p>
-            </dt>
-            <dd>
+        <h4 id="twitter-click-to-tweet">Twitter (click to tweet)</h4>
+        <ul>
+            <li>
                 <p>
                     <a href="https://twitter.com/intent/tweet?text=The+next+DIY+Healer%27s+Flea+is+coming+up%21+{{ site.url | absolute_url | cgi_escape }}%2F+Do-it-yourself%2C+together.">The next DIY Healer&rsquo;s Flea is coming up {{ site.url | absolute_url }} Do-it-yourself, together.</a>
                 </p>
-            </dd>
-            <dd>
+            </li>
+            <li>
                 <p>
-                <a href="https://twitter.com/intent/tweet?text=Getting+excited+for+the+next+DIY+Healer%27s+Flea+on+{{ site.next_event.dt_start | date: "%B %e" | cgi_escape }}%2C+{{ site.next_event.dt_start | date: "%l:%M%P" | cgi_escape }}{% if site.next_event.venue.twitter %}+%40{{ site.next_event.venue.twitter | cgi_escape }}{% endif %}%21+{{ site.url | absolute_url | cgi_escape }}">Getting excited for the next DIY Healer&rsquo;s Flea on {{ site.next_event.dt_start | date: "%B %e" }}, {{ site.next_event.dt_start | date: "%l:%M%P" }}{% if site.next_event.venue.twitter %} @{{ site.next_event.venue.twitter }}{% endif %}! {{ site.url | absolute_url }}</a>
+                    <a href="https://twitter.com/intent/tweet?text=Getting+excited+for+the+next+DIY+Healer%27s+Flea+on+{{ site.next_event.dt_start | date: "%B %e" | cgi_escape }}%2C+{{ site.next_event.dt_start | date: "%l:%M%P" | cgi_escape }}{% if site.next_event.venue.twitter %}+%40{{ site.next_event.venue.twitter | cgi_escape }}{% endif %}%21+{{ site.url | absolute_url | cgi_escape }}">Getting excited for the next DIY Healer&rsquo;s Flea on {{ site.next_event.dt_start | date: "%B %e" }}, {{ site.next_event.dt_start | date: "%l:%M%P" }}{% if site.next_event.venue.twitter %} @{{ site.next_event.venue.twitter }}{% endif %}! {{ site.url | absolute_url }}</a>
                 </p>
-            </dd>
-            <dt>
-                <p>Facebook (copy and paste)</p>
-            </dt>
-            <dd>
-                <p>DIY stands for Do-It-Yourself, but that doesn't mean you have to be by yourself.</p>
-                <p>The DIY Healer’s Flea is an all-ages, no cover market that incorporates public education on healing practices using a creative, communal, and self-guided approach.</p>
-                <p>The Flea offers a way for people working in various methods of healing to come together and share their practices with fellow healers as well as the general public.</p>
-                {% if site.data.participants %}
-                <p>This DIY Healer&rsquo;s Flea features {% include featured-categories.html tag="span" after=", " %} and more from the following vendors:</p>
-                <p>
-                    {% assign participants = site.data.participants | sort: "Your business or brand name" %}
-                    {% for participant in participants %}
-                    {{ participant["Your business or brand name"] }}{% if participant["Work website"] %} - {{ participant["Work website"] }}{% endif %}<br />
-                    {% endfor %}
-                </p>
-                {% endif %}
-                <p>
-                    For more information or if you&rsquo;re interested in registering as a vendor, speaker, or healer, visit:<br />
-                    {{ site.url | absolute_url }}
-                </p>
-            </dd>
-        </dl>
+            </li>
+        </ul>
+        <h4 id="facebook-copy-and-paste">Facebook (copy and paste)</h4>
+        <p>DIY stands for Do-It-Yourself, but that doesn't mean you have to be by yourself.</p>
+        <p>The DIY Healer’s Flea is an all-ages, no cover market that incorporates public education on healing practices using a creative, communal, and self-guided approach.</p>
+        <p>The Flea offers a way for people working in various methods of healing to come together and share their practices with fellow healers as well as the general public.</p>
+        {% if site.data.participants %}
+        <p>This DIY Healer&rsquo;s Flea features {% include featured-categories.html tag="span" after=", " %} and more from the following vendors:</p>
+        <p>
+            {% assign participants = site.data.participants | sort: "Your business or brand name" %}
+            {% for participant in participants %}
+            {{ participant["Your business or brand name"] }}{% if participant["Work website"] %} - {{ participant["Work website"] }}{% endif %}<br />
+            {% endfor %}
+        </p>
+        {% endif %}
+        <p>
+            For more information or if you&rsquo;re interested in registering as a vendor, speaker, or healer, visit:<br />
+            {{ site.url | absolute_url }}
+        </p>
     </div>
 </section>
