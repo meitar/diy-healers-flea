@@ -1,0 +1,91 @@
+---
+title: "Flyer to promote the next event"
+---
+
+<style>
+.next-event-details {
+    float: left;
+    width: 33%;
+    margin: 0 .15in 0 0;
+}
+.next-event-details p:first-child {
+    margin-bottom: .75em;
+}
+.next-event-details p {
+    margin: 0;
+    font: 24pt "BebasNeue";
+    text-align: center;
+}
+.next-event-details span {
+    display: block;
+}
+h2 {
+    font: 22pt "BebasNeue";
+    margin: 0;
+}
+ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    border: 2mm solid #000;
+    border-width: 2mm 0 0 0;
+    padding: 0;
+    clear: left;
+    font-size: 12pt;
+}
+li {
+    margin-left: 1em;
+    margin-right 1em;
+    text-align: justify;
+}
+li:first-child {
+    margin-left: 0;
+}
+li:last-child {
+    margin-right: 0;
+}
+#about {
+    font-size: 16pt;
+}
+#garnish-1,
+#garnish-2 {
+    position: absolute;
+    top: .25in;
+    width: 4in;
+    z-index: -10;
+    opacity: .4;
+}
+#garnish-1 {
+    left: 0;
+}
+#garnish-2 {
+    right: 0;
+    transform: scaleX(-1);
+}
+</style>
+
+<img id="garnish-1" src="{{ "static/img/flowers-1.transparent.png" | relative_url }}" alt="" />
+<img id="garnish-2" src="{{ "static/img/flowers-2.transparent.png" | relative_url }}" alt="" />
+<div class="next-event-details">
+    <p>{{ site.next_event.dt_start | date: "%A, %B %e %Y" }} <span>{{ site.next_event.dt_start | date: "%l:%M%P" }}&ndash;{{ site.next_event.dt_end | date: "%l:%M%P" | strip }}</span></p>
+    {% assign location_parts = site.next_event.venue.location | split: ", "%}
+    <p>{{ site.next_event.venue.name }} <span>{{ location_parts | first }}</span> <span>{{ location_parts | shift | join: ", " }}</span></p> 
+</div>
+<div id="about">
+    <p>The <dfn>DIY Healer&rsquo;s Flea</dfn> is an all-ages market that incorporates public education on healing practices using a creative, communal, and self-guided approach.</p>
+    <p>The Flea offers a way for people working in various methods of healing to come together and share their practices with fellow healers as well as the general public.</p>
+</div>
+<ul>
+    <li>
+        <h2>Free entry!</h2>
+        <p>We are excited to share knowledge of various healing and repair practices with our community, so the DIY Healer&rsquo;s Fleas are always free to attend. Join your friends and neighbors in learning about everything from clothing mending to bicycle repair to brewing herbal remedies!</p>
+    </li>
+    <li>
+        <h2>Local vendors!</h2>
+        <p>Share your skills, sell your wares, and showcase what you know! Vending at DIY Healer&rsquo;s Fleas is an inexpensive way to make face-to-face connections with your customers, clients, and comrades. Visit our website to reserve your space for the next Flea!</p>
+    </li>
+    <li>
+        <h2>Talks &amp; Workshops!</h2>
+        <p>We are always seeking curious and enthusiastic speakers to give 30 to 90 minute presentations or workshops in their area of interest and expertise. Teach your neighbors how to tune their bikes. Show off your styling abilities and explain the process to aspiring designers.</p>
+    </li>
+</ul>
