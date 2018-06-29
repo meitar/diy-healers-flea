@@ -27,6 +27,11 @@ defaults:
       path: "" # an empty string here means all files in the project
     values:
       layout: default
+  -
+    scope:
+      path: "flyers"
+    values:
+      layout: flyer
 
 # Start and end times for the next event, used throughout the
 # website in various areas. Please use a native Ruby format.

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% include head.html %}
+        <link rel="stylesheet" href="{{ "static/css/flyers.css" | relative_url }}" />
+    </head>
+<body>
+    <main>
+        {% include site-branding.html %}
+        {{ content }}
+        <footer>
+            <p>
+                No cover to attend. Inexpensive table fees to vend. Easy online registration.
+            </p>
+            <p>
+                Learn more at <a href="{{ site.url | absolute_url }}">{{ site.url | absolute_url }}</a>
+            </p>
+        </footer>
+    </main>
+</body>
+</html>

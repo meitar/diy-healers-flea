@@ -86,6 +86,9 @@ body {
     margin-top: 3em;
     padding: 0 20px;
 }
+#Masthead h1 span {
+    display: block;
+}
 main {
     margin: 2em 0;
 }
