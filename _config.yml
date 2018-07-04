@@ -36,12 +36,7 @@ defaults:
 # Start and end times for the next event, used throughout the
 # website in various areas. Please use a native Ruby format.
 next_event:
-  venue:
-    name:     "Trans Pecos"
-    location: "915 Wyckoff Avenue, Queens, NY 11385"
-    link:     "https://www.thetranspecos.com/"
-    map_link: "https://www.openstreetmap.org/node/5364903172"
-    twitter:  "thetranspecos"
+  venue_name:         "Trans-Pecos"
   dt_start:           2018-07-28 13:00:00 -0400
   dt_end:             2018-07-28 18:00:00 -0400
   applications_open:  2018-06-25 00:00:00 -0400

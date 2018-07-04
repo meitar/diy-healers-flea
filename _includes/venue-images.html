@@ -1,0 +1,12 @@
+{% if include.images %}
+<ul class="venue-images">
+    {% for image in include.images %}
+    <li>
+        <figure>
+            <img src="{{ image.src | relative_url }}" alt="{{ image.alt }}" />
+            {% if image.caption %}<figcaption>{{ image.caption }}</figcaption>{% endif %}
+        </figure>
+    </li>
+    {% endfor %}
+</ul>
+{% endif %}

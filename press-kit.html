@@ -2,6 +2,8 @@
 title: Press Kit
 ---
 
+{% assign venue = site.data.venues | where: "name", site.next_event.venue_name | first %}
+
 <section id="press-kit">
     <h2>Press Kit</h2>
     <ol>
@@ -21,7 +23,7 @@ title: Press Kit
             </li>
             <li>
                 <p>
-                    Where: {{ site.next_event.venue.name }} ({{ site.next_event.venue.location }})
+                    Where: {{ venue.name }} ({{ venue.location }})
                 </p>
             </li>
         </ul>
@@ -56,7 +58,7 @@ title: Press Kit
             </li>
             <li>
                 <p>
-                    <a href="https://twitter.com/intent/tweet?text=Getting+excited+for+the+next+DIY+Healer%27s+Flea+on+{{ site.next_event.dt_start | date: "%B %e" | cgi_escape }}%2C+{{ site.next_event.dt_start | date: "%l:%M%P" | cgi_escape }}{% if site.next_event.venue.twitter %}+%40{{ site.next_event.venue.twitter | cgi_escape }}{% endif %}%21+{{ site.url | absolute_url | cgi_escape }}">Getting excited for the next DIY Healer&rsquo;s Flea on {{ site.next_event.dt_start | date: "%B %e" }}, {{ site.next_event.dt_start | date: "%l:%M%P" }}{% if site.next_event.venue.twitter %} @{{ site.next_event.venue.twitter }}{% endif %}! {{ site.url | absolute_url }}</a>
+                    <a href="https://twitter.com/intent/tweet?text=Getting+excited+for+the+next+DIY+Healer%27s+Flea+on+{{ site.next_event.dt_start | date: "%B %e" | cgi_escape }}%2C+{{ site.next_event.dt_start | date: "%l:%M%P" | cgi_escape }}{% if venue.twitter %}+%40{{ venue.twitter | cgi_escape }}{% endif %}%21+{{ site.url | absolute_url | cgi_escape }}">Getting excited for the next DIY Healer&rsquo;s Flea on {{ site.next_event.dt_start | date: "%B %e" }}, {{ site.next_event.dt_start | date: "%l:%M%P" }}{% if venue.twitter %} @{{ venue.twitter }}{% endif %}! {{ site.url | absolute_url }}</a>
                 </p>
             </li>
         </ul>
