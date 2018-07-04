@@ -2,8 +2,10 @@
 <ul class="venue-images">
     {% for image in include.images %}
     <li>
-        <figure>
-            <img src="{{ image.src | relative_url }}" alt="{{ image.alt }}" />
+        <figure id="venue-image-{{ image.src | split: "/" | last | slugify }}">
+            <a href="#{{ image.src | split: "/" | last | slugify | prepend: "venue-image-" }}">
+                <img src="{{ image.src | relative_url }}" alt="{{ image.alt }}" />
+            </a>
             {% if image.caption %}<figcaption>{{ image.caption }}</figcaption>{% endif %}
         </figure>
     </li>
