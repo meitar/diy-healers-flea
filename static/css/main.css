@@ -246,7 +246,8 @@ table caption {
     display: block;
 }
 
-section.overlay {
+section.overlay,
+figure:target {
     display: block;
     position: fixed;
     z-index: 999;
@@ -257,6 +258,13 @@ section.overlay {
     top: 0;
     left: 0;
     background: rgba(248,247,244,.95);
+}
+figure:target {
+    padding-top: 2em;
+    text-align: center;
+}
+figure:target img {
+    max-height: 85vh;
 }
 section.overlay h2,
 section.overlay .e-content {
