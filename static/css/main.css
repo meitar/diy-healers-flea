@@ -42,6 +42,12 @@ li {
     padding: 0.5em;
     text-align: center;
 }
+#about-the-venue {
+    text-align: left;
+}
+.venue-images img {
+    max-width: 100%;
+}
 #PageFooter {
     font-size: xx-small;
     text-align: center;
@@ -266,10 +272,12 @@ figure {
     padding: 0;
     font-size: smaller;
 }
-#featured-image img {
+#featured-image img,
+.venue-images img {
     border-radius: 1em;
 }
 
+.venue-images,
 #press-kit ul {
     margin: 0;
     padding: 0;

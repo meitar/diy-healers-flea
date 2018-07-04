@@ -2,6 +2,8 @@
 title: Home
 ---
 
+{% assign venue = site.data.venues | where: "name", site.next_event.venue_name | first %}
+
 {% include featured-image.html src="static/img/2018-06-24-diy-healers-flea-vending-1.jpeg" alt="" caption="Vendors line a small corner market, from left to right: <a href='https://SaveOnScents.com/'>Save On Scents</a>, <a href='https://www.etsy.com/shop/ascalchemical'>Asc Alchemical</a>, and <a href='https://www.instagram.com/herbalundergroundnyc/'>Herbal Underground</a>." %}
 
 <div class="h-event vevent">
@@ -20,8 +22,17 @@ title: Home
             <div id="next-event-banner">
                 <p>
                     <abbr title="{{ site.next_event.dt_start | date_to_xmlschema }}" class="dt-start dtstart">{{ site.next_event.dt_start | date: "%A, %B %e %Y" }} from {{ site.next_event.dt_start | date: "%l:%M%P" | strip }}</abbr>&ndash;<abbr title="{{ site.next_event.dt_end | date_to_xmlschema }}" class="dt-end dtend">{{ site.next_event.dt_end | date: "%l:%M%P" | strip }}</abbr>
-                    at <abbr class="p-location location" title="{{ site.next_event.venue.location }}">{% if site.next_event.venue.link %}<a href="{{ site.next_event.venue.link }}">{% endif %}{{ site.next_event.venue.name }}{% if site.next_event.venue.link %}</a>{% endif %}</abbr>{% if site.next_event.venue.map_link %} (<a href="{{ site.next_event.venue.map_link }}">map</a>){% endif %}.
+                    at <abbr class="p-location location" title="{{ venue.location }}">{% if venue.link %}<a href="{{ venue.link }}">{% endif %}{{ venue.name }}{% if venue.link %}</a>{% endif %}</abbr>{% if venue.map_link %} (<a href="{{ venue.map_link }}">map</a>){% endif %}.
                 </p>
+                {% if venue %}
+                <div id="about-the-venue">
+                    <h3>About the Venue</h3>
+                    {% assign images = venue.images | where: "featured", true  %}
+                    {% include venue-images.html images=images %}
+                    <p>{{ venue.desc }}</p>
+                    <p><a href="{{ "venue.html" | relative_url }}">Read more about {{ site.next_event.venue_name }}</a>.</p>
+                </div>
+                {% endif %}
                 <p>
                     <a href="http://h2vx.com/ics/{{ page.url | absolute_url | url_encode }}">Download Event Info To Your Calendar</a>
                 </p>
