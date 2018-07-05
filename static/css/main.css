@@ -48,6 +48,17 @@ li {
 .venue-images img {
     max-width: 100%;
 }
+#presentation-schedule {
+    border: 1px solid #AAA;
+    padding: 5px;
+    text-align: left;
+}
+#presentation-schedule tbody tr:nth-child(odd) {
+    background: #EEE;
+}
+#presentation-schedule .hidden {
+    display: none;
+}
 #PageFooter {
     font-size: xx-small;
     text-align: center;
@@ -247,7 +258,8 @@ table caption {
 }
 
 section.overlay,
-figure:target {
+figure:target,
+#presentation-schedule .h-event-container:target {
     display: block;
     position: fixed;
     z-index: 999;
@@ -266,13 +278,31 @@ figure:target {
 figure:target img {
     max-height: 85vh;
 }
+#presentation-schedule .h-event-container:target .hidden {
+    display: block;
+}
+#presentation-schedule .h-event-container:target .hidden:not(.p-attach) {
+    margin-left: 50%;
+}
 section.overlay h2,
 section.overlay .e-content {
     margin: 0 auto;
     width: 75%;
 }
-section.overlay h2 {
+#presentation-schedule .h-event-container:target .h-event {
+    padding: 2em;
+    height: calc(100vh - 4em);
+    overflow-y: scroll;
+}
+section.overlay h2,
+#presentation-schedule .p-name {
     margin-top: 2em;
+}
+#presentation-schedule .p-attach {
+    float: left;
+    border-radius: 2em;
+    width: 40%;
+    margin-right: 10%;
 }
 
 figure {
