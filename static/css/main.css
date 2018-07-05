@@ -115,7 +115,7 @@ section {
 
 @media screen and (min-width: 690px) {
     body {
-        padding: 0 120px;
+        padding: 0 60px;
     }
     #Masthead {
         position: fixed;
