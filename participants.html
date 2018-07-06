@@ -7,31 +7,46 @@ title: Participants
 <section id="participants-info">
     <h2>Participants</h2>
     <div class="e-content">
-        {% if site.data.participants %}
-        <p>We are excited to announce the participants of the next DIY Healer&rsquo;s Flea! This Healer&rsquo;s Flea will include products in the following categories:</p>
+        <h3 id="participating-vendors">Participating Vendors</h3>
+        {% if site.data.vendors %}
+        <p>
+            We are excited to announce the vendor list for the next DIY Healer&rsquo;s Flea! This Healer&rsquo;s Flea will include products in the following categories:
+        </p>
         <ul class="category-list">
             {% include featured-categories.html tag="li" %}
             <li>&hellip;and more!</li>
         </ul>
-        <p>This Healer&rsquo;s Flea will feature the following brands and indie vendors:</p>
+        <p>
+            This Healer&rsquo;s Flea will feature the following brands and indie vendors:
+        </p>
         <ul>
-            {% assign participants = site.data.participants | sort: "Your business or brand name" %}
-            {% for participant in participants %}
-            {% assign categories = participant["Product category"] | split: "," %}
+            {% assign vendors = site.data.vendors | sort: "Your business or brand name" %}
+            {% for vendor in vendors %}
+            {% assign categories = vendor["Product category"] | split: "," %}
             <li class="{% for category in categories %}category-{{ category | strip | slugify }} {% endfor %}">
-                <p>Brand: {% if participant["Work website"] %}<a href="{{ participant["Work website"] }}">{% endif %}{% if participant["Your business or brand name"] %}{{ participant["Your business or brand name"] }}{% endif %}{% if participant["Your business or brand name"] %}</a>{% endif %}</p>
-                <p>Personal: {{ participant["Preferred name"] }} {% if participant["Personal website"] %}(<a href="{{ participant["Personal website"] }}">Homepage</a>){% endif %}</p>
-                <blockquote><p>{{ participant["Seller's statement"] }}</p></blockquote>
-                <p>Flagship product: {{ participant["Flagship product name"] }} {% if participant["Flagship product Web address"] %}(<a href="{{ participant["Flagship product Web address"] }}">learn more</a>){% endif %}</p>
-                {% if participant["Facebook"] %}<p>Facebook: <a href="{{ participant["Facebook"] }}">{{ participant["Facebook"] | split: "/" | last }}</a></p>{% endif %}
-                {% if participant["Instagram"] %}<p>Instagram: <a href="{{ participant["Instagram"] }}">{{ participant["Instagram"] | split: "/" | last }}</a></p>{% endif %}
-                {% if participant["Twitter"] %}<p>Twitter: <a href="{{ participant["Twitter"] }}">{{ participant["Twitter"] | split: "/" | last }}</a></p>{% endif %}
-                {% if participant["Tumblr"] %}<p>Tumblr: <a href="{{ participant["Tumblr"] }}">{{ participant["Tumblr"] | split: "/" | last }}</a></p>{% endif %}
+                <p>Brand: {% if vendor["Work website"] %}<a href="{{ vendor["Work website"] }}">{% endif %}{% if vendor["Your business or brand name"] %}{{ vendor["Your business or brand name"] }}{% endif %}{% if vendor["Your business or brand name"] %}</a>{% endif %}</p>
+                <p>Personal: {{ vendor["Preferred name"] }} {% if vendor["Personal website"] %}(<a href="{{ vendor["Personal website"] }}">Homepage</a>){% endif %}</p>
+                <blockquote><p>{{ vendor["Seller's statement"] }}</p></blockquote>
+                <p>Flagship product: {{ vendor["Flagship product name"] }} {% if vendor["Flagship product Web address"] %}(<a href="{{ vendor["Flagship product Web address"] }}">learn more</a>){% endif %}</p>
+                {% if vendor["Facebook"] %}<p>Facebook: <a href="{{ vendor["Facebook"] }}">{{ vendor["Facebook"] | split: "/" | last }}</a></p>{% endif %}
+                {% if vendor["Instagram"] %}<p>Instagram: <a href="{{ vendor["Instagram"] }}">{{ vendor["Instagram"] | split: "/" | last }}</a></p>{% endif %}
+                {% if vendor["Twitter"] %}<p>Twitter: <a href="{{ vendor["Twitter"] }}">{{ vendor["Twitter"] | split: "/" | last }}</a></p>{% endif %}
+                {% if vendor["Tumblr"] %}<p>Tumblr: <a href="{{ vendor["Tumblr"] }}">{{ vendor["Tumblr"] | split: "/" | last }}</a></p>{% endif %}
             </li>
             {% endfor %}
         </ul>
         {% else %}
-        <p>Participants for the next DIY-HF have not yet been announced. <a href="register.html">Apply now</a> to reserve your space, and check back soon to view the approved participant list.</p>
+        <p>
+            Vendors for the next DIY-HF have not yet been announced. <a href="{{ "register.html#vendor-registration" | relative_url }}">Apply now to reserve your vending space</a>, and check back soon to view the participating vendor list.
+        </p>
+        {% endif %}
+        <h3 id="participating-speakers">Participating Speakers</h3>
+        {% if site.data.speakers %}
+        <!-- TODO: Speaker info! -->
+        {% else %}
+        <p>
+            Speakers for the next DIY-HF have not yet been announced. <a href="{{ "register.html#speaker-registration" | relative_url }}">Apply now to reserve your speaker time slot</a>, and check back soon to view the participating speaker list.
+        </p>
         {% endif %}
     </div>
 </section>
