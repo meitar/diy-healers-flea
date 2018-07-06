@@ -65,12 +65,12 @@ title: Press Kit
         <h4 id="facebook-copy-and-paste">Facebook (copy and paste)</h4>
         <p>DIY stands for Do-It-Yourself, but that doesn&rsquo;t mean you have to be by yourself.</p>
         <p>The DIY Healer&rsquo;s Flea is an all-ages, no cover market that incorporates public education on healing practices using a creative, communal, and self-guided approach. The Flea offers a way for people working in various methods of healing to come together and share their practices with fellow healers as well as the general public. A curated selection of talented local vendors and makers sell their wares at the market alongside free talks and workshops run by invited experts, speakers, and healers. Each Flea is a unique experience that strengthens local ties and disseminates invaluable knowledge throughout the community.</p>
-        {% if site.data.participants %}
+        {% if site.data.vendors %}
         <p>This DIY Healer&rsquo;s Flea features {% include featured-categories.html tag="span" after=", " %} and more from the following vendors:</p>
         <p>
-            {% assign participants = site.data.participants | sort: "Your business or brand name" %}
-            {% for participant in participants %}
-            {{ participant["Your business or brand name"] }}{% if participant["Work website"] %} - {{ participant["Work website"] }}{% endif %}<br />
+            {% assign vendors = site.data.vendors | sort: "Your business or brand name" %}
+            {% for vendor in vendors %}
+            {{ vendor["Your business or brand name"] }}{% if vendor["Work website"] %} - {{ vendor["Work website"] }}{% endif %}<br />
             {% endfor %}
         </p>
         {% endif %}

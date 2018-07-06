@@ -1,6 +1,6 @@
 {%- assign categories = "" | split: "" -%}
-{%- for participant in site.data.participants -%}
-    {%- assign cat = participant["Product category"] | split: "," -%}
+{%- for vendor in site.data.vendors -%}
+    {%- assign cat = vendor["Product category"] | split: "," -%}
     {%- for c in cat -%}
         {%- assign x = c | strip -%}
         {%- assign categories = categories | push: x -%}
