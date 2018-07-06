@@ -63,9 +63,8 @@ title: Press Kit
             </li>
         </ul>
         <h4 id="facebook-copy-and-paste">Facebook (copy and paste)</h4>
-        <p>DIY stands for Do-It-Yourself, but that doesn't mean you have to be by yourself.</p>
-        <p>The DIY Healer’s Flea is an all-ages, no cover market that incorporates public education on healing practices using a creative, communal, and self-guided approach.</p>
-        <p>The Flea offers a way for people working in various methods of healing to come together and share their practices with fellow healers as well as the general public.</p>
+        <p>DIY stands for Do-It-Yourself, but that doesn&rsquo;t mean you have to be by yourself.</p>
+        <p>The DIY Healer&rsquo;s Flea is an all-ages, no cover market that incorporates public education on healing practices using a creative, communal, and self-guided approach. The Flea offers a way for people working in various methods of healing to come together and share their practices with fellow healers as well as the general public. A curated selection of talented local vendors and makers sell their wares at the market alongside free talks and workshops run by invited experts, speakers, and healers. Each Flea is a unique experience that strengthens local ties and disseminates invaluable knowledge throughout the community.</p>
         {% if site.data.participants %}
         <p>This DIY Healer&rsquo;s Flea features {% include featured-categories.html tag="span" after=", " %} and more from the following vendors:</p>
         <p>
@@ -75,8 +74,17 @@ title: Press Kit
             {% endfor %}
         </p>
         {% endif %}
+        {% if site.data.speakers %}
+        <p>We are excited to present this Flea&rsquo;s speaker schedule! Don&rsquo;t miss these talks and workshops:</p>
         <p>
-            For more information or if you&rsquo;re interested in registering as a vendor, speaker, or healer, visit:<br />
+            {% assign speakers = site.data.speakers | sort: "Presentation start" %}
+            {% for speaker in speakers %}
+            &bull; &ldquo;{{ speaker["Presentation title"] }}&rdquo; by {{ speaker["Preferred name"] }}{% if speaker["Work website"] %} - {{ speaker["Work website"] }}{% endif %}<br />
+            {% endfor %}
+        </p>
+        {% endif %}
+        <p>
+            For more information including a full schedule, or if you&rsquo;re interested in registering as a vendor, speaker, or healer, visit:<br />
             {{ site.url | absolute_url }}
         </p>
         <h3 id="printable-flyers">Printable Flyers</h3>
