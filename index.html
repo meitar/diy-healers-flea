@@ -80,10 +80,10 @@ title: Home
                                     </ul>
                                     <div class="hidden p-description description">
                                         <blockquote>
-                                            <p>{{ session["Presentation description"] }}</p>
+                                            <p>{{ session["Presentation description"] | newline_to_br }}</p>
                                         </blockquote>
                                         <h4>About the presenter</h4>
-                                        <p>{{ session["Presenter bio"] }}</p>
+                                        <p>{{ session["Presenter bio"] | newline_to_br }}</p>
                                     </div>
                                     {% if session["Work website"] %}
                                     <p class="hidden">

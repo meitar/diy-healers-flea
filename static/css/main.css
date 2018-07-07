@@ -88,7 +88,7 @@ blockquote p:last-of-type::after {
     line-height: .5em;
     position: relative;
     top: .25em;
-    right: .2em;
+    right: .1em;
 }
 
 /**
@@ -127,6 +127,14 @@ section {
     }
     main, #PageFooter {
         margin-left: 460px;
+    }
+    #participating-speakers-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 2em;
+    }
+    #participating-speakers-list > li {
+        margin-bottom: 0;
     }
 }
 
@@ -303,6 +311,26 @@ section.overlay h2,
     border-radius: 2em;
     width: 40%;
     margin-right: 10%;
+}
+
+#participating-speakers-list,
+#participating-speakers-list h4,
+#participating-speakers-list blockquote {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+#participating-speakers-list > li {
+    margin-bottom: 2em;
+}
+#participating-speakers-list .u-photo {
+    float: left;
+    margin-right: 1em;
+    margin-bottom: 1em;
+    border-radius: 1em;
+    border: 1px solid #AAA;
+    min-width: 150px;
+    width: 25%;
 }
 
 figure {
