@@ -84,11 +84,13 @@ title: Participants
             Speakers for the next DIY-HF have not yet been announced. <a href="{{ "register.html#speaker-registration" | relative_url }}">Apply now to reserve your speaker time slot</a>, and check back soon to view the participating speaker list.
         </p>
         {% endif %}
+        {% if site.data.vendors or site.data.speakers %}
         <p style="text-align: center;">
             <a href="http://h2vx.com/ics/{{ page.url | absolute_url | cgi_escape }}">
                 <img src="{{ "static/img/icon.address-book.png" | relative_url }}" alt="" width="20" />
                 Save participant data to your address book.
             </a>
         </p>
+        {% endif %}
     </div><!-- .e-content -->
 </section>
