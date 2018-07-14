@@ -42,7 +42,7 @@ title: Home
                             <th>
                                 Time slot
                             </th>
-                            {% assign space_codes = site.data.speakers | map: "Space code" | uniq %}
+                            {% assign space_codes = site.data.speakers | map: "Space code" | uniq | sort %}
                             {% for space_code in space_codes %}
                             <th>
                                 Space {{ space_code }}
@@ -51,7 +51,7 @@ title: Home
                         </tr>
                     </thead>
                     <tbody>
-                        {% assign time_slots = site.data.speakers | map: "Presentation start" | uniq %}
+                        {% assign time_slots = site.data.speakers | map: "Presentation start" | uniq | sort %}
                         {% for time_slot in time_slots %}
                         <tr>
                             <th>
