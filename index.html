@@ -30,7 +30,7 @@ title: Home
                     {% assign images = venue.images | where: "featured", true  %}
                     {% include venue-images.html images=images %}
                     <p>{{ venue.desc }}</p>
-                    <p><a href="{{ "venue.html" | relative_url }}">Read more about {{ site.next_event.venue_name }}</a>.</p>
+                    <p><a class="u-url url" href="{{ "venue.html" | relative_url }}">Read more about {{ site.next_event.venue_name }}</a>.</p>
                 </div>
                 {% endif %}
                 {% if site.data.speakers %}
