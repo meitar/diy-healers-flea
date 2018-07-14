@@ -72,7 +72,7 @@ title: Home
                                         {% assign duration_in_seconds = 60 | times: session["Presentation duration (minutes)"] %}
                                         {% assign presentation_end = session["Presentation start"] | date: "%s" | plus: duration_in_seconds %}
                                         <li>
-                                            to <abbr class="dt-end dtend" title="{{ site.next_event.dt_start | date: "%Y-%m-%d" }}T{{ session["Presentation start"] | date: "%T%z" }}">{{ presentation_end | date: "%l:%M%P" | strip }}</abbr>
+                                            to <abbr class="dt-end dtend" title="{{ site.next_event.dt_start | date: "%Y-%m-%d" }}T{{ presentation_end | date: "%T%z" }}">{{ presentation_end | date: "%l:%M%P" | strip }}</abbr>
                                         </li>
                                         <li>
                                             in <span class="p-location location">Space {{ session["Space code"] }}</span>.
