@@ -1,11 +1,12 @@
 {%- assign categories = "" | split: "" -%}
 {%- for vendor in site.data.vendors -%}
-    {%- assign cat = vendor["Product category"] | split: "," | uniq -%}
+    {%- assign cat = vendor["Product category"] | split: "," -%}
     {%- for c in cat -%}
         {%- assign x = c | strip -%}
         {%- assign categories = categories | push: x -%}
     {%- endfor -%}
 {%- endfor -%}
+{%- assign categories = categories | uniq -%}
 {%- for category in categories -%}
 {%- if site.category_whitelist contains category -%}<{{ include.tag | default: "li" }}>{{ category }}</{{ include.tag | default: "li" }}>{%- if include.after -%}{{ include.after }}{%- endif -%}{%- endif -%}
 {%- endfor -%}
