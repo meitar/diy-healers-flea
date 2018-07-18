@@ -1,6 +1,6 @@
 {%- assign categories = "" | split: "" -%}
 {%- for vendor in site.data.vendors -%}
-    {%- assign cat = vendor["Product category"] | split: "," -%}
+    {%- assign cat = vendor["Product category"] | split: "," | uniq -%}
     {%- for c in cat -%}
         {%- assign x = c | strip -%}
         {%- assign categories = categories | push: x -%}
