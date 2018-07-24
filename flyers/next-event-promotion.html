@@ -2,7 +2,7 @@
 title: "Flyer to promote the next event"
 ---
 
-{% assign venue = site.data.venues | where: "name", site.next_event.venue_name | first %}
+{% assign venue = site.data.venues | where: "Venue name", site.next_event.venue_name | first %}
 
 <style>
 .next-event-details {
@@ -70,8 +70,7 @@ li:last-child {
 <img id="garnish-2" src="{{ "static/img/flowers-2.transparent.png" | relative_url }}" alt="" />
 <div class="next-event-details">
     <p>{{ site.next_event.dt_start | date: "%A, %B %e %Y" }} <span>{{ site.next_event.dt_start | date: "%l:%M%P" }}&ndash;{{ site.next_event.dt_end | date: "%l:%M%P" | strip }}</span></p>
-    {% assign location_parts = venue.location | split: ", "%}
-    <p>{{ venue.name }} <span>{{ location_parts | first }}</span> <span>{{ location_parts | shift | join: ", " }}</span></p>
+    <p>{{ venue["Venue name"] }} <span>{{ venue["Venue street address"] | xml_escape }}</span> <span>{{ venue["Venue locality"] | xml_escape }}, {{ venue["Venue region"] | xml_escape }} {{ venue["Venue postal code"] | xml_escape }}</span></p>
 </div>
 <div id="about">
     <p>The <dfn>DIY Healer&rsquo;s Flea</dfn> is an all-ages market that incorporates public education on healing practices using a creative, communal, and self-guided approach.</p>
