@@ -12,11 +12,13 @@ title: Pay and Donate
         <h3 id="how-to-pay">How to Pay</h3>
         <p>Follow these instructions carefully to ensure your payment is successul and your reservation is processed in the shortest amount of time.</p>
         <ol>
-            <li>Determine how much you need to pay; refer to <a href="{{ "/index.html#fees-and-pricing" | relative_url }}">our price list</a> for details.</li>
+            <li>Determine how much you need to pay; refer to <a href="{{ page.url | append: "#fees-and-pricing" | relative_url }}">our price list</a> for details.</li>
             <li>Click a &ldquo;Pay via&hellip;&rdquo; payment link from the <a href="#payment-options">payment options</a> below. (Sorry, we only accept payments in the ways linked from this page; no personal cheques.)</li>
             <li>Complete the payment form; you will be returned to this page when your payment is successful and has begun to process.</li>
         </ol>
         {% assign return = page.url | append: "#vendor-payment-thank-you" %}
+        <h3 id="fees-and-pricing">Fees and Pricing</h3>
+        {% include price-table.html %}
         <h3>Pay</h3>
         <ul id="payment-options">
             <li><a href="{%- include paypal-url.j2 return=return -%}">Pay via PayPal</a></li>

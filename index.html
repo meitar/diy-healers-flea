@@ -10,7 +10,7 @@ title: Home
     <section id="about">
         <h2>What&rsquo;s the DIY-HF?</h2>
         <div class="e-content p-description description">
-            <p>The <dfn class="p-name p-summary summary">DIY Healer&rsquo;s Flea</dfn> is an all-ages market that incorporates public education on healing practices using a creative, communal, and self-guided approach.</p>
+            <p>The <a class="u-url url" href="{{ "/" | relative_url }}" style="color: inherit; text-decoration: inherit; cursor: inherit;"><dfn class="p-name p-summary summary">DIY Healer&rsquo;s Flea</dfn></a> is an all-ages market that incorporates public education on healing practices using a creative, communal, and self-guided approach.</p>
             <p>It is free to attend, although <a href="{{ "register.html" | relative_url }}">vendors and service providers must first register</a> to reserve space at the event.</p>
             <p>The Flea offers a way for people working in various methods of healing to come together and share their practices with fellow healers as well as the general public.</p>
         </div>
@@ -109,27 +109,12 @@ title: Home
             <p>
                 Vendors must pay a non-refundable tabling fee in order to vend.
             </p>
-            {% if site.payments.prices.vending %}
-            <table class="pricing">
-                <caption>Vendor tabling fee (shown in <abbr title="United States Dollars">USD</abbr>).</caption>
-                <thead>
-                    <tr>
-                        <th>Space</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for x in site.payments.prices.vending %}
-                    <tr>
-                        <td><span>{{ x.item_name }}</span></td>
-                        <td><span>{{ x.item_cost }}</span></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table><!-- .pricing -->
-            {% endif %}
-            <p><small>Vendor fees are partially dependent upon the host venue, and are subject to change without notice after each event. Please double-check the fee here before registering!</small><p>
-            <a href="{{ "register.html#vendor-registration" | relative_url }}">Apply now</a> to reserve your vending space.
+            {% include price-table.html %}
+            <p>
+                <small>Vendor fees are partially dependent upon the host venue, and are subject to change without notice after each event. Please double-check the fee here before registering!</small>
+            </p>
+            <p>
+                <a href="{{ "register.html#vendor-registration" | relative_url }}">Apply now</a> to reserve your vending space.
             </p>
         </div><!-- .e-content -->
     </section><!-- #next-event -->
