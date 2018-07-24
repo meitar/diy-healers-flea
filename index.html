@@ -29,13 +29,13 @@ title: Home
                     <h3>About the Venue</h3>
                     {% assign images = site.data.venue_images | where: "Venue name", site.next_event.venue_name | where: "Featured", "TRUE" %}
                     {% include venue-images.html images=images %}
-                    <p>{{ venue["Venue description"] | xml_escape | strip }}</p>
+                    <p>{{ venue["Venue description"] | strip | xml_escape }}</p>
                     <p><a href="{{ "venue.html" | relative_url }}">Read more about {{ site.next_event.venue_name }}</a>.</p>
                 </div>
                 {% endif %}
                 {% if site.data.speakers %}
                 <table id="presentation-schedule">
-                    <caption>{{ site.title  }} Presentation Schedule</caption>
+                    <caption>{{ site.title }} Presentation Schedule</caption>
                     {% assign session_number = 1 %}
                     <thead>
                         <tr>
@@ -47,7 +47,7 @@ title: Home
                             {% for space_code in space_codes %}
                             <th>
                                 {% assign space = spaces | where: "Venue space code", space_code | first %}
-                                {{ space["Venue space name"] | xml_escape }}
+                                {{ space["Venue space name"] | strip | xml_escape }}
                             </th>
                             {% endfor %}
                         </tr>
@@ -67,7 +67,7 @@ title: Home
                                 {% if session %}
                                 <div id="speaker-event-{{ session_number }}" class="h-event-container"><div class="h-event vevent">
                                     <img class="hidden p-attach" src="{{ session["Presentation image"] }}" alt="" />
-                                    <h3 class="p-name p-summary summary"><a href="#speaker-event-{{ session_number }}">{{ session["Presentation title"] }}</a></h3>
+                                    <h3 class="p-name p-summary summary"><a href="#speaker-event-{{ session_number }}">{{ session["Presentation title"] | strip | xml_escape }}</a></h3>
                                     <ul class="hidden">
                                         <li>
                                             From <abbr class="dt-start dtstart" title="{{ site.next_event.dt_start | date: "%Y-%m-%d" }}T{{ session["Presentation start"] | date: "%T%z" }}">{{ session["Presentation start"] | date: "%l:%M%P" | strip }}</abbr>
@@ -83,10 +83,10 @@ title: Home
                                     </ul>
                                     <div class="hidden p-description description">
                                         <blockquote>
-                                            <p>{{ session["Presentation description"] | newline_to_br }}</p>
+                                            <p>{{ session["Presentation description"] | strip | xml_escape | newline_to_br }}</p>
                                         </blockquote>
                                         <h4>About the presenter</h4>
-                                        <p>{{ session["Presenter bio"] | newline_to_br }}</p>
+                                        <p>{{ session["Presenter bio"] | strip | xml_escape | newline_to_br }}</p>
                                     </div>
                                     {% if session["Work website"] %}
                                     <p class="hidden">

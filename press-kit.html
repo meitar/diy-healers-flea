@@ -23,7 +23,7 @@ title: Press Kit
             </li>
             <li>
                 <p>
-                    Where: {{ venue["Venue name"] }} ({%- include venue-location.txt -%})
+                    Where: {{ venue["Venue name"] | xml_escape }} ({%- include venue-location.txt -%})
                 </p>
             </li>
         </ul>
@@ -71,7 +71,7 @@ title: Press Kit
         <p>
             {% assign vendors = site.data.vendors | sort: "Your business or brand name" %}
             {% for vendor in vendors %}
-            {{ vendor["Your business or brand name"] }}{% if vendor["Work website"] %} - {{ vendor["Work website"] }}{% endif %}<br />
+            {{ vendor["Your business or brand name"] | strip | xml_escape }}{% if vendor["Work website"] %} - {{ vendor["Work website"] | strip | xml_escape }}{% endif %}<br />
             {% endfor %}
         </p>
         {% endif %}
@@ -80,7 +80,7 @@ title: Press Kit
         <p>
             {% assign speakers = site.data.speakers | sort: "Presentation start" %}
             {% for speaker in speakers %}
-            &bull; &ldquo;{{ speaker["Presentation title"] }}&rdquo; by {{ speaker["Preferred name"] }}{% if speaker["Work website"] %} - {{ speaker["Work website"] }}{% endif %}<br />
+            &bull; &ldquo;{{ speaker["Presentation title"] | strip | xml_escape }}&rdquo; by {{ speaker["Preferred name"] | strip | xml_escape }}{% if speaker["Work website"] %} - {{ speaker["Work website"] | strip | xml_escape }}{% endif %}<br />
             {% endfor %}
         </p>
         {% endif %}
