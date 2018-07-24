@@ -19,7 +19,7 @@ title: Pay and Donate
         {% assign return = page.url | append: "#vendor-payment-thank-you" %}
         <h3>Pay</h3>
         <ul id="payment-options">
-            <li><a href="{% include paypal-url.j2 return=return %}">Pay via PayPal</a></li>
+            <li><a href="{%- include paypal-url.j2 return=return -%}">Pay via PayPal</a></li>
         </ul>
         <h3 id="donate">Donate</h3>
         <p>You may also use this page to send an in-kind donation to support our work on the DIY Healer&rsquo;s Fleas. Your donations help us improve future Fleas by securing larger venues, supporting awesome speakers, and more. Donations have no effect on any reservation you may have.</p>

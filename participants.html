@@ -86,7 +86,7 @@ title: Participants
         {% endif %}
         {% if site.data.vendors or site.data.speakers %}
         <p style="text-align: center;">
-            <a href="http://h2vx.com/ics/{{ page.url | absolute_url | cgi_escape }}">
+            <a href="http://suda.co.uk/projects/microformats/hcard/get-contact.php?uri={{ page.url | absolute_url | cgi_escape }}">
                 <img src="{{ "static/img/icon.address-book.png" | relative_url }}" alt="" width="20" />
                 Save participant data to your address book.
             </a>
