@@ -69,7 +69,7 @@ title: Participants
                     {% assign categories = speaker["Presentation category"] | split: "," %}
                     {% if categories %}
                     <li>
-                        Categories:
+                        Presentation topics:
                         <ul>
                         {% for category in categories %}
                             <li class="p-category category">{{ category | xml_escape | strip }}</li>
