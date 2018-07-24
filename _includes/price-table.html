@@ -1,0 +1,19 @@
+{% if site.payments.prices.vending %}
+<table class="pricing">
+    <caption>Vendor tabling fee (shown in <abbr title="United States Dollars">USD</abbr>).</caption>
+    <thead>
+        <tr>
+            <th>Space</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for x in site.payments.prices.vending %}
+        <tr>
+            <td><span>{{ x.item_name }}</span></td>
+            <td><span>{{ x.item_cost }}</span></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table><!-- .pricing -->
+{% endif %}

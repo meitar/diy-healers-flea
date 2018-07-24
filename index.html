@@ -109,27 +109,12 @@ title: Home
             <p>
                 Vendors must pay a non-refundable tabling fee in order to vend.
             </p>
-            {% if site.payments.prices.vending %}
-            <table class="pricing">
-                <caption>Vendor tabling fee (shown in <abbr title="United States Dollars">USD</abbr>).</caption>
-                <thead>
-                    <tr>
-                        <th>Space</th>
-                        <th>Price</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for x in site.payments.prices.vending %}
-                    <tr>
-                        <td><span>{{ x.item_name }}</span></td>
-                        <td><span>{{ x.item_cost }}</span></td>
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table><!-- .pricing -->
-            {% endif %}
-            <p><small>Vendor fees are partially dependent upon the host venue, and are subject to change without notice after each event. Please double-check the fee here before registering!</small><p>
-            <a href="{{ "register.html#vendor-registration" | relative_url }}">Apply now</a> to reserve your vending space.
+            {% include price-table.html %}
+            <p>
+                <small>Vendor fees are partially dependent upon the host venue, and are subject to change without notice after each event. Please double-check the fee here before registering!</small>
+            </p>
+            <p>
+                <a href="{{ "register.html#vendor-registration" | relative_url }}">Apply now</a> to reserve your vending space.
             </p>
         </div><!-- .e-content -->
     </section><!-- #next-event -->
