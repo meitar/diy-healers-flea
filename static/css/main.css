@@ -45,7 +45,8 @@ li {
 #about-the-venue {
     text-align: left;
 }
-.venue-images img {
+.venue-images img,
+#presentation-schedule .p-attach {
     max-width: 100%;
 }
 #presentation-schedule {
@@ -135,6 +136,14 @@ section {
     }
     #participating-speakers-list > li {
         margin-bottom: 0;
+    }
+    #presentation-schedule .h-event-container:target .hidden:not(.p-attach) {
+        margin-left: 50%;
+    }
+    #presentation-schedule .p-attach {
+        float: left;
+        width: 40%;
+        margin-right: 10%;
     }
 }
 
@@ -289,9 +298,6 @@ figure:target img {
 #presentation-schedule .h-event-container:target .hidden {
     display: block;
 }
-#presentation-schedule .h-event-container:target .hidden:not(.p-attach) {
-    margin-left: 50%;
-}
 section.overlay h2,
 section.overlay .e-content {
     margin: 0 auto;
@@ -307,10 +313,7 @@ section.overlay h2,
     margin-top: 2em;
 }
 #presentation-schedule .p-attach {
-    float: left;
     border-radius: 2em;
-    width: 40%;
-    margin-right: 10%;
 }
 
 #participating-speakers-list,
