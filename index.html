@@ -2,7 +2,7 @@
 title: Home
 ---
 
-{% assign venue = site.data.venues | where: "name", site.next_event.venue_name | first %}
+{% assign venue = site.data.venues | where: "Venue name", site.next_event.venue_name | first %}
 
 {% include featured-image.html src="static/img/2018-06-24-diy-healers-flea-vending-1.jpeg" alt="" caption="Vendors line a small corner market, from left to right: <a href='https://SaveOnScents.com/'>Save On Scents</a>, <a href='https://www.etsy.com/shop/ascalchemical'>Asc Alchemical</a>, and <a href='https://www.instagram.com/herbalundergroundnyc/'>Herbal Underground</a>." %}
 
@@ -22,14 +22,14 @@ title: Home
             <div id="next-event-banner">
                 <p>
                     <abbr title="{{ site.next_event.dt_start | date_to_xmlschema }}" class="dt-start dtstart">{{ site.next_event.dt_start | date: "%A, %B %e %Y" }} from {{ site.next_event.dt_start | date: "%l:%M%P" | strip }}</abbr>&ndash;<abbr title="{{ site.next_event.dt_end | date_to_xmlschema }}" class="dt-end dtend">{{ site.next_event.dt_end | date: "%l:%M%P" | strip }}</abbr>
-                    at <abbr class="p-location location" title="{{ venue.location }}">{% if venue.link %}<a href="{{ venue.link }}">{% endif %}{{ venue.name }}{% if venue.link %}</a>{% endif %}</abbr>{% if venue.map_link %} (<a href="{{ venue.map_link }}">map</a>){% endif %}.
+                    at <abbr class="p-location location" title="{%- include venue-location.txt -%}">{% if venue["Venue website"] %}<a href="{{ venue["Venue website"] }}">{% endif %}{{ venue["Venue name"] }}{% if venue["Venue website"] %}</a>{% endif %}</abbr>{% if venue["Venue map link"] %} (<a href="{{ venue["Venue map link"] }}">map</a>){% endif %}.
                 </p>
                 {% if venue %}
                 <div id="about-the-venue">
                     <h3>About the Venue</h3>
-                    {% assign images = venue.images | where: "featured", true  %}
+                    {% assign images = site.data.venue_images | where: "Venue name", site.next_event.venue_name | where: "Featured", "TRUE" %}
                     {% include venue-images.html images=images %}
-                    <p>{{ venue.desc }}</p>
+                    <p>{{ venue["Venue description"] | xml_escape | strip }}</p>
                     <p><a href="{{ "venue.html" | relative_url }}">Read more about {{ site.next_event.venue_name }}</a>.</p>
                 </div>
                 {% endif %}
@@ -42,10 +42,12 @@ title: Home
                             <th>
                                 Time slot
                             </th>
+                            {% assign spaces = site.data.venue_spaces | where: "Venue name", site.next_event.venue_name %}
                             {% assign space_codes = site.data.speakers | map: "Space code" | uniq | sort %}
                             {% for space_code in space_codes %}
                             <th>
-                                Space {{ space_code }}
+                                {% assign space = spaces | where: "Venue space code", space_code | first %}
+                                {{ space["Venue space name"] | xml_escape }}
                             </th>
                             {% endfor %}
                         </tr>
@@ -61,6 +63,7 @@ title: Home
                             {% for space_code in space_codes %}
                             <td>
                                 {% assign session = sessions | where: "Space code", space_code | first %}
+                                {% assign space = spaces | where: "Venue space code", space_code | first %}
                                 {% if session %}
                                 <div id="speaker-event-{{ session_number }}" class="h-event-container"><div class="h-event vevent">
                                     <img class="hidden p-attach" src="{{ session["Presentation image"] }}" alt="" />
@@ -75,7 +78,7 @@ title: Home
                                             to <abbr class="dt-end dtend" title="{{ site.next_event.dt_start | date: "%Y-%m-%d" }}T{{ presentation_end | date: "%T%z" }}">{{ presentation_end | date: "%l:%M%P" | strip }}</abbr>
                                         </li>
                                         <li>
-                                            in <span class="p-location location">Space {{ session["Space code"] }}</span>.
+                                            in space &ldquo;<span class="p-location location">{{ space["Venue space name"] | xml_escape }}</span>.&rdquo;
                                         </li>
                                     </ul>
                                     <div class="hidden p-description description">
