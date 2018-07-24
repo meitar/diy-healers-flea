@@ -5,7 +5,17 @@ title: About the Venue
 {% assign venue = site.data.venues | where: "Venue name", site.next_event.venue_name | first %}
 
 <section id="venue-info">
-    <h2>About {{ site.next_event.venue_name }}</h2>
+    <h2>About {{ site.next_event.venue_name | xml_escape }}</h2>
+    <table>
+        <tr>
+            <td style="display: none;">
+                {{ site.next_event.venue_name | xml_escape }}
+            </td>
+            <td>
+                {% include venue-location.txt %}{% if venue["Venue map link"]%} (<a href="{{ venue["Venue map link"] }}">map</a>){% endif %}
+            </td>
+        </tr>
+    </table>
     {% assign images = site.data.venue_images | where: "Venue name", site.next_event.venue_name %}
     {% include venue-images.html images=images %}
     {{ venue["Venue long description"] }}
