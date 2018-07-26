@@ -93,6 +93,9 @@ title: Home
                                         <a class="u-url url" href="{{ session["Work website"] }}">Visit {{ session["Preferred name"] }}&rsquo;s website</a>.
                                     </p>
                                     {% endif %}
+                                    <p class="hidden">
+                                        <a href="{{ "/" | append: "#presentation-schedule" | relative_url }}">Back to {{ site.title }} presentation schedule</a>.
+                                    </p>
                                 </div><!-- .h-event.vevent --></div><!-- .h-event-container -->
                                 {% endif %}
                             </td>
