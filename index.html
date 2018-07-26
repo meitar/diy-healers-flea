@@ -90,7 +90,7 @@ title: Home
                                     </div>
                                     {% if session["Work website"] %}
                                     <p class="hidden">
-                                        <a class="u-url url" href="{{ session["Work website"] }}">Visit {{ session["Preferred name"] }}&rsquo;s website</a>.
+                                        <a class="u-url url" href="{{ session["Work website"] }}">Visit {{ session["Preferred name"] | strip | xml_escape }}&rsquo;s website</a>.
                                     </p>
                                     {% endif %}
                                     <p class="hidden">
