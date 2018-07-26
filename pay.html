@@ -12,16 +12,18 @@ title: Pay and Donate
         <h3 id="how-to-pay">How to Pay</h3>
         <p>Follow these instructions carefully to ensure your payment is successul and your reservation is processed in the shortest amount of time.</p>
         <ol>
-            <li>Determine how much you need to pay; refer to <a href="{{ page.url | append: "#fees-and-pricing" | relative_url }}">our price list</a> for details.</li>
+            <li>Determine how much you need to pay; refer to <a href="#fees-and-pricing">our price list</a> for details.</li>
             <li>Click a &ldquo;Pay via&hellip;&rdquo; payment link from the <a href="#payment-options">payment options</a> below. (Sorry, we only accept payments in the ways linked from this page; no personal cheques.)</li>
             <li>Complete the payment form; you will be returned to this page when your payment is successful and has begun to process.</li>
         </ol>
-        {% assign return = page.url | append: "#vendor-payment-thank-you" %}
         <h3 id="fees-and-pricing">Fees and Pricing</h3>
         {% include price-table.html %}
         <h3>Pay</h3>
         <ul id="payment-options">
-            <li><a href="{%- include paypal-url.j2 return=return -%}">Pay via PayPal</a></li>
+            {% assign amount = site.payments.prices.vending[0].item_cost %}
+            {% assign return = page.url | append: "#vendor-payment-thank-you" | absolute_url %}
+            {% assign cancel_return = page.url | append: "#cancelled-payment" | absolute_url %}
+            <li><a href="{%- include paypal-url.j2 amount=amount return=return cancel_return=cancel_return -%}">Pay via PayPal</a></li>
         </ul>
         <h3 id="donate">Donate</h3>
         <p>You may also use this page to send an in-kind donation to support our work on the DIY Healer&rsquo;s Fleas. Your donations help us improve future Fleas by securing larger venues, supporting awesome speakers, and more. Donations have no effect on any reservation you may have.</p>
