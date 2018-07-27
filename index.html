@@ -66,7 +66,7 @@ title: Home
                                 {% assign space = spaces | where: "Venue space code", space_code | first %}
                                 {% if session %}
                                 <div id="speaker-event-{{ session_number }}" class="h-event-container"><div class="h-event vevent">
-                                    <img class="hidden p-attach" src="{{ session["Presentation image"] }}" alt="" />
+                                    <img class="hidden p-attach" src="{{ session["Presentation image"] | default: "/static/img/promo.banner.instagram.post.1080x1080.green.png" }}" alt="" />
                                     <h3 class="p-name p-summary summary"><a href="#speaker-event-{{ session_number }}">{{ session["Presentation title"] | strip | xml_escape }}</a></h3>
                                     <ul class="hidden">
                                         <li>
