@@ -20,10 +20,16 @@ title: Home
         <h2>The Next DIY Healer&rsquo;s Flea:</h2>
         <div class="e-content">
             <div id="next-event-banner">
+                {% if site.next_event.dt_start %}
                 <p>
                     <abbr title="{{ site.next_event.dt_start | date_to_xmlschema }}" class="dt-start dtstart">{{ site.next_event.dt_start | date: "%A, %B %e %Y" }} from {{ site.next_event.dt_start | date: "%l:%M%P" | strip }}</abbr>&ndash;<abbr title="{{ site.next_event.dt_end | date_to_xmlschema }}" class="dt-end dtend">{{ site.next_event.dt_end | date: "%l:%M%P" | strip }}</abbr>
                     at <abbr class="p-location location" title="{%- include venue-location.txt -%}">{% if venue["Venue website"] %}<a href="{{ venue["Venue website"] }}">{% endif %}{{ venue["Venue name"] }}{% if venue["Venue website"] %}</a>{% endif %}</abbr>{% if venue["Venue map link"] %} (<a href="{{ venue["Venue map link"] }}">map</a>){% endif %}.
                 </p>
+                {% else %}
+                <p>
+                    The next event has not yet been scheduled. Check back soon for information about the schedule of the next event!
+                </p>
+                {% endif %}
                 {% if venue %}
                 <div id="about-the-venue">
                     <h3>About the Venue</h3>
