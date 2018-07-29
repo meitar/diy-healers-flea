@@ -11,11 +11,17 @@ title: Register
     </p>
     <h3>Application Overview</h3>
     <div class="e-content">
+        {% if site.next_event.dt_start %}
         <p>The next DIY Healer&rsquo;s Flea is scheduled for:</p>
         <ul>
             <li>{{ site.next_event.dt_start | date: "%A, %B %e %Y %l:%M %p" }}</li>
         </ul>
-        <p>All applications that we receive before the above event&rsquo;s application deadline of {{ site.next_event.applications_close | date: "%B %e, %Y %l:%M %p" }} will be considered for the above date. Any applications we receive later than the application deadline will automatically roll over to the next DIY Healer&rsquo;s Flea, usually a month to two months later. <em>If you are applying after this deadline, please be reasonably sure that you can participate in the following, as-yet-unscheduled future event.</em></p>
+        {% else %}
+        <p>
+            The next event has not yet been scheduled. Check back soon for information about the schedule of the next event!
+        </p>
+        {% endif %}
+        <p>All applications that we receive before the {% if site.next_event.dt_start %}above{% else %}next{% endif %} event&rsquo;s application deadline of {{ site.next_event.applications_close | date: "%B %e, %Y %l:%M %p" }} will be considered for the {% if site.next_event.dt_start %}above date{% else %}next event{% endif %}. Any applications we receive later than the application deadline will automatically roll over to the next DIY Healer&rsquo;s Flea, usually a month to two months later. <em>If you are applying after this deadline, please be reasonably sure that you can participate in the following, as-yet-unscheduled future event.</em></p>
         <ol>
             <li>
                 <p>

@@ -5,7 +5,7 @@ title: About the Venue
 {% assign venue = site.data.venues | where: "Venue name", site.next_event.venue_name | first %}
 
 <section id="venue-info">
-    <h2>About {{ site.next_event.venue_name | xml_escape }}</h2>
+    <h2>About {{ site.next_event.venue_name | default: "the Venue" | xml_escape }}</h2>
     <table>
         <tr>
             <td style="display: none;">
@@ -18,7 +18,7 @@ title: About the Venue
     </table>
     {% assign images = site.data.venue_images | where: "Venue name", site.next_event.venue_name %}
     {% include venue-images.html images=images %}
-    {{ venue["Venue long description"] }}
+    {{ venue["Venue long description"] | default: "The venue for the next event has not yet been announced. Check back soon for information about the location of the next event!" }}
     {% if venue["Venue website"] %}<p><a href="{{ venue["Venue website"] }}">Visit {{ site.next_event.venue_name }}&rsquo;s website.</a></p>{% endif %}
     <p>The application deadline to reserve your space for our next event on {{ site.next_event.dt_start | date: "%A, %B %e %Y" }} closes on {{ site.next_event.applications_close | date: "%B %e, %Y %l:%M %p" }}. <a href="{{ "register.html" | relative_url }}">Apply now</a>!</p>
 </section>
