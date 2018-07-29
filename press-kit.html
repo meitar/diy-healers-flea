@@ -18,12 +18,12 @@ title: Press Kit
         <ul style="list-style: disc; margin: 0 0 0 1em;">
             <li>
                 <p>
-                    When: {{ site.next_event.dt_start | date: "%A, %B %e %Y %l:%M%P" }}&ndash;{{ site.next_event.dt_end | date: "%l:%M%P" | strip }}
+                When: {% if site.next_event.dt_start %}{{ site.next_event.dt_start | date: "%A, %B %e %Y %l:%M%P" }}&ndash;{{ site.next_event.dt_end | date: "%l:%M%P" | strip }}{% else %}To Be Announced{% endif %}
                 </p>
             </li>
             <li>
                 <p>
-                    Where: {{ venue["Venue name"] | xml_escape }} ({%- include venue-location.txt -%})
+                    Where: {{ venue["Venue name"] | default: "To Be Announced" | xml_escape }}{% if site.next_event.venue_name %} ({%- include venue-location.txt -%}){% endif %}
                 </p>
             </li>
         </ul>
