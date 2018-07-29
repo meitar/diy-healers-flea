@@ -58,7 +58,7 @@ title: Press Kit
             </li>
             <li>
                 <p>
-                    <a href="https://twitter.com/intent/tweet?text=Getting+excited+for+the+next+DIY+Healer%27s+Flea+on+{{ site.next_event.dt_start | date: "%B %e" | strip | cgi_escape }}%2C+{{ site.next_event.dt_start | date: "%l:%M%P" | strip | cgi_escape }}{% if venue["Venue Twitter"] %}+%40{{ venue["Venue Twitter"] | replace: "https://twitter.com/", "" | strip | cgi_escape }}{% endif %}%21+{{ site.url | absolute_url | cgi_escape }}">Getting excited for the next DIY Healer&rsquo;s Flea on {{ site.next_event.dt_start | date: "%B %e" | strip }}, {{ site.next_event.dt_start | date: "%l:%M%P" | strip }}{% if venue["Venue Twitter"] %} @{{ venue["Venue Twitter"] | replace: "https://twitter.com/", "" | strip }}{% endif %}! {{ site.url | absolute_url }}</a>
+                <a href="https://twitter.com/intent/tweet?text=Getting+excited+for+the+next+DIY+Healer%27s+Flea{% if site.next_event.dt_start %}+on+{{ site.next_event.dt_start | date: "%B %e" | strip | cgi_escape }}%2C+{{ site.next_event.dt_start | date: "%l:%M%P" | strip | cgi_escape }}{% endif %}{% if venue["Venue Twitter"] %}+%40{{ venue["Venue Twitter"] | replace: "https://twitter.com/", "" | strip | cgi_escape }}{% endif %}%21+{{ site.url | absolute_url | cgi_escape }}">Getting excited for the next DIY Healer&rsquo;s Flea{% if site.next_event.dt_start %} on {{ site.next_event.dt_start | date: "%B %e" | strip }}, {{ site.next_event.dt_start | date: "%l:%M%P" | strip }}{% endif %}{% if venue["Venue Twitter"] %} @{{ venue["Venue Twitter"] | replace: "https://twitter.com/", "" | strip }}{% endif %}! {{ site.url | absolute_url }}</a>
                 </p>
             </li>
         </ul>
