@@ -22,19 +22,7 @@ title: Participants
         <ul>
             {% assign vendors = site.data.vendors | sort: "Your business or brand name" %}
             {% for vendor in vendors %}
-            {% assign categories = vendor["Product category"] | split: "," %}
-            <li id="vendor-{{ vendor["Email Address"] | sha256 | xml_escape }}" class="h-card vcard {% for category in categories %}category-{{ category | strip | slugify }} {% endfor %}">
-                <p>Brand: {% if vendor["Work website"] %}<a class="u-url u-url-work url" href="{{ vendor["Work website"] }}">{% endif %}{% if vendor["Your business or brand name"] %}<span class="org">{{ vendor["Your business or brand name"] | xml_escape }}</span>{% endif %}{% if vendor["Work website"] %}</a>{% endif %}</p>
-                <p>Personal: <span class="p-name fn">{{ vendor["Preferred name"] | xml_escape }}</span> {% if vendor["Personal website"] %}(<a class="u-url u-url-home url" href="{{ vendor["Personal website"] }}">Homepage</a>){% endif %}</p>
-                <blockquote class="p-note note">
-                    <p>{{ vendor["Seller's statement"] | strip | xml_escape | newline_to_br }}</p>
-                </blockquote>
-                <p>Flagship product: {{ vendor["Flagship product name"] }} {% if vendor["Flagship product Web address"] %}(<a href="{{ vendor["Flagship product Web address"] }}">learn more</a>){% endif %}</p>
-                {% if vendor["Facebook"] %}<p>Facebook: <a class="u-url url" href="{{ vendor["Facebook"] }}">{{ vendor["Facebook"] | split: "/" | last }}</a></p>{% endif %}
-                {% if vendor["Instagram"] %}<p>Instagram: <a class="u-url url" href="{{ vendor["Instagram"] }}">{{ vendor["Instagram"] | split: "/" | last }}</a></p>{% endif %}
-                {% if vendor["Twitter"] %}<p>Twitter: <a class="u-url url" href="{{ vendor["Twitter"] }}">{{ vendor["Twitter"] | split: "/" | last }}</a></p>{% endif %}
-                {% if vendor["Tumblr"] %}<p>Tumblr: <a class="u-url url" href="{{ vendor["Tumblr"] }}">{{ vendor["Tumblr"] | split: "/" | last }}</a></p>{% endif %}
-            </li>
+            {% include vendor-list-item.html %}
             {% endfor %}
         </ul>
         {% else %}
@@ -51,34 +39,7 @@ title: Participants
             {% assign speakers = site.data.speakers | sort: "Presentation start" %}
             {% assign spaces = site.data.venue_spaces | where: "Venue name", site.next_event.venue_name %}
             {% for speaker in speakers %}
-            <li id="speaker-{{ speaker["Email Address"] | sha256 }}" class="h-card vcard">
-                {% if speaker["Presentation image"] %}<img class="u-photo photo" src="{{ speaker["Presentation image"] }}" alt="" />{% endif %}
-                <h4>{{ speaker["Presentation title"] | xml_escape }}</h4>
-                <blockquote>
-                    <p>{{ speaker["Presentation description"] | strip | xml_escape | newline_to_br }}</p>
-                </blockquote>
-                <p class="p-note note">{{ speaker["Presenter bio"] | strip | xml_escape | newline_to_br }}</p>
-                <ul>
-                    <li>
-                        Presenter: <span class="p-name fn">{% if speaker["Work website"] %}<a class="u-url url" href="{{ speaker["Work website"] }}">{% endif %}{{ speaker["Preferred name"] | xml_escape }}{% if speaker["Work website"] %}</a>{% endif %}</span>
-                    </li>
-                    {% assign space = spaces | where: "Venue space code", speaker["Space code"] | first %}
-                    <li>
-                        Schedule: At {{ speaker["Presentation start"] | date: "%l:%M%P" }} in space &ldquo;{{ space["Venue space name"] | xml_escape }}&rdquo;
-                    </li>
-                    {% assign categories = speaker["Presentation category"] | split: "," %}
-                    {% if categories %}
-                    <li>
-                        Presentation topics:
-                        <ul>
-                        {% for category in categories %}
-                            <li class="p-category category">{{ category | xml_escape | strip }}</li>
-                        {% endfor %}
-                        </ul>
-                    </li>
-                    {% endif %}
-                </ul>
-            </li>
+            {% include speaker-list-item.html %}
             {% endfor %}
         </ul>
         {% else %}

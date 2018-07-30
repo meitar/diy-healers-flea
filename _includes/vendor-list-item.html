@@ -1,0 +1,13 @@
+{% assign categories = vendor["Product category"] | split: "," %}
+<li id="vendor-{{ vendor["Email Address"] | sha256 | xml_escape }}" class="h-card vcard {% for category in categories %}category-{{ category | strip | slugify }} {% endfor %}">
+    <p>Brand: {% if vendor["Work website"] %}<a class="u-url u-url-work url" href="{{ vendor["Work website"] }}">{% endif %}{% if vendor["Your business or brand name"] %}<span class="org">{{ vendor["Your business or brand name"] | xml_escape }}</span>{% endif %}{% if vendor["Work website"] %}</a>{% endif %}</p>
+    <p>Personal: <span class="p-name fn">{{ vendor["Preferred name"] | xml_escape }}</span> {% if vendor["Personal website"] %}(<a class="u-url u-url-home url" href="{{ vendor["Personal website"] }}">Homepage</a>){% endif %}</p>
+    <blockquote class="p-note note">
+        <p>{{ vendor["Seller's statement"] | strip | xml_escape | newline_to_br }}</p>
+    </blockquote>
+    <p>Flagship product: {{ vendor["Flagship product name"] }} {% if vendor["Flagship product Web address"] %}(<a href="{{ vendor["Flagship product Web address"] }}">learn more</a>){% endif %}</p>
+    {% if vendor["Facebook"] %}<p>Facebook: <a class="u-url url" href="{{ vendor["Facebook"] }}">{{ vendor["Facebook"] | split: "/" | last }}</a></p>{% endif %}
+    {% if vendor["Instagram"] %}<p>Instagram: <a class="u-url url" href="{{ vendor["Instagram"] }}">{{ vendor["Instagram"] | split: "/" | last }}</a></p>{% endif %}
+    {% if vendor["Twitter"] %}<p>Twitter: <a class="u-url url" href="{{ vendor["Twitter"] }}">{{ vendor["Twitter"] | split: "/" | last }}</a></p>{% endif %}
+    {% if vendor["Tumblr"] %}<p>Tumblr: <a class="u-url url" href="{{ vendor["Tumblr"] }}">{{ vendor["Tumblr"] | split: "/" | last }}</a></p>{% endif %}
+</li>

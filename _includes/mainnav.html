@@ -4,6 +4,7 @@
     <li{% if page.name == "register.html" %} class="current"{% endif %}><a href="{{ "register.html" | relative_url }}">Register</a></li>
     <li{% if page.name == "press-kit.html" %} class="current"{% endif %}><a href="{{ "press-kit.html" | relative_url }}">Press Kit</a></li>
     {% if page.name == "pay.html" %}<li class="current"><a href="{{ "pay.html" | relative_url }}">Pay &amp; Donate</a></li>{% endif %}{% comment %}Hide this item unless it is the current page. :){% endcomment %}
-    <li{% if page.name == "tools.html" %} class="current"{% endif %}><a href="{{ "tools.html" | relative_url }}">Participant Tools</a></li>
+    <li{% if page.name == "tools.html" %} class="current"{% endif %}><a href="{{ "tools.html" | relative_url }}">Tools</a></li>
     <li{% if page.name == "participants.html" %} class="current"{% endif %}><a href="{{ "participants.html" | relative_url }}">Participants</a></li>
+    <li{% if page.name == "contact.html" %} class="current"{% endif %}><a href="{{ "contact.html" | relative_url }}">Contact</a></li>
 </ul>
