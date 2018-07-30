@@ -20,5 +20,5 @@ title: About the Venue
     {% include venue-images.html images=images %}
     {{ venue["Venue long description"] | default: "The venue for the next event has not yet been announced. Check back soon for information about the location of the next event!" }}
     {% if venue["Venue website"] %}<p><a href="{{ venue["Venue website"] }}">Visit {{ site.next_event.venue_name }}&rsquo;s website.</a></p>{% endif %}
-    <p>The application deadline to reserve your space for our next event on {{ site.next_event.dt_start | date: "%A, %B %e %Y" }} closes on {{ site.next_event.applications_close | date: "%B %e, %Y %l:%M %p" }}. <a href="{{ "register.html" | relative_url }}">Apply now</a>!</p>
+    <p>The application deadline to reserve your space for our next event{% if site.next_event.dt_start %} on {{ site.next_event.dt_start | date: "%A, %B %e %Y" }}{% endif %} closes on {{ site.next_event.applications_close | date: "%B %e, %Y %l:%M %p" }}. <a href="{{ "register.html" | relative_url }}">Apply now</a>!</p>
 </section>

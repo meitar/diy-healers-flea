@@ -69,8 +69,16 @@ li:last-child {
 <img id="garnish-1" src="{{ "static/img/flowers-1.transparent.png" | relative_url }}" alt="" />
 <img id="garnish-2" src="{{ "static/img/flowers-2.transparent.png" | relative_url }}" alt="" />
 <div class="next-event-details">
+    {% if site.next_event.dt_start %}
     <p>{{ site.next_event.dt_start | date: "%A, %B %e %Y" }} <span>{{ site.next_event.dt_start | date: "%l:%M%P" }}&ndash;{{ site.next_event.dt_end | date: "%l:%M%P" | strip }}</span></p>
-    <p>{{ venue["Venue name"] }} <span>{{ venue["Venue street address"] | xml_escape }}</span> <span>{{ venue["Venue locality"] | xml_escape }}, {{ venue["Venue region"] | xml_escape }} {{ venue["Venue postal code"] | xml_escape }}</span></p>
+    {% else %}
+    <p>Visit our website for details!</p>
+    {% endif %}
+    {% if site.next_event.venue_name %}
+    <p>{{ venue["Venue name"] | strip | xml_escape }} <span>{{ venue["Venue street address"] | strip | xml_escape }}</span> <span>{{ venue["Venue locality"] | strip | xml_escape }}, {{ venue["Venue region"] | strip | xml_escape }} {{ venue["Venue postal code"] | strip | xml_escape }}</span></p>
+    {% else %}
+    <p><a href="{{ site.url | absolute_url }}"><img src="{{ "static/img/qr.link.diy-healers-flea.homepage.gif" | relative_url }}" alt="Visit {{ site.title | xml_escape }}&rsquo;s homepage." /></a></p>
+    {% endif %}
 </div>
 <div id="about">
     <p>The <dfn>DIY Healer&rsquo;s Flea</dfn> is an all-ages market that incorporates public education on healing practices using a creative, communal, and self-guided approach.</p>
