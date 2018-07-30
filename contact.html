@@ -1,0 +1,53 @@
+---
+title: Contact
+---
+
+{% include featured-image.html src="static/img/2018-07-28-diy-healers-flea-vendors-2.jpeg" alt="" caption="" %}
+
+<section id="participants-info">
+    <h2>Contact</h2>
+    <p>{{ site.title }} is an opportunity for people working in various methods of healing to come together and share their practices with fellow healers as well as the general public. To better facilitate connections between healers and strengthen local community ties, we hope you&rsquo;ll use the contact information on this page to get in touch with a vendor, speaker, or healer who participated in the last event. Contact info for participants at the upcoming event{% if site.data.vendors or site.data.speakers %} is {% else %} will be {% endif%}available on the <a href="{{ "participants.html" | relative_url }}">Participants</a> page, and to contact the organizers to <a href="{{ "register.html#vendor-registration" | relative_url }}">register for a spot as a Vendor</a> or <a href="{{ "register.html#speaker-registration" | relative_url }}">Speaker</a> yourself, use our <a href="{{ "register.html" | relative_url }}">Register</a> page.</p>
+    <div class="e-content">
+        <h3 id="participating-vendors">Vendors at the prior DIY-HF</h3>
+        {% if site.data.last_vendors %}
+        <p>
+            The last Healer&rsquo;s Flea featured the following brands and indie vendors:
+        </p>
+        <ul>
+            {% assign vendors = site.data.last_vendors | sort: "Your business or brand name" %}
+            {% for vendor in vendors %}
+            {% include vendor-list-item.html %}
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>
+            Vendors for the next DIY-HF have not yet been announced. <a href="{{ "register.html#vendor-registration" | relative_url }}">Apply now to reserve your vending space</a>, and check back soon to view the participating vendor list.
+        </p>
+        {% endif %}
+        <h3 id="participating-speakers">Speakers at the last DIY-HF</h3>
+        {% if site.data.last_speakers %}
+        <p>
+            We had a great line-up for the last Healer&rsquo;s Flea, featuring:
+        </p>
+        <ul id="participating-speakers-list">
+            {% assign speakers = site.data.last_speakers | sort: "Presentation start" %}
+            {% assign spaces = site.data.venue_spaces | where: "Venue name", site.last_event.venue_name %}
+            {% for speaker in speakers %}
+            {% include speaker-list-item.html %}
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>
+            Speakers for the next DIY-HF have not yet been announced. <a href="{{ "register.html#speaker-registration" | relative_url }}">Apply now to reserve your speaker time slot</a>, and check back soon to view the participating speaker list.
+        </p>
+        {% endif %}
+        {% if site.data.last_vendors or site.data.last_speakers %}
+        <p style="text-align: center;">
+            <a href="http://suda.co.uk/projects/microformats/hcard/get-contact.php?uri={{ page.url | absolute_url | cgi_escape }}">
+                <img src="{{ "static/img/icon.address-book.png" | relative_url }}" alt="" width="20" />
+                Save participant data to your address book.
+            </a>
+        </p>
+        {% endif %}
+    </div><!-- .e-content -->
+</section>

@@ -41,6 +41,8 @@ next_event:
   #dt_end:             2018-07-28 18:00:00 -0400
   applications_open:  2018-07-28 00:00:00 -0400
   applications_close: 2018-08-20 00:00:00 -0400
+last_event:
+  venue_name:         "Trans-Pecos"
 
 payments:
   prices:
