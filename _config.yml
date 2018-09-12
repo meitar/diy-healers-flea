@@ -37,10 +37,10 @@ defaults:
 # website in various areas. Please use a native Ruby format.
 next_event:
   venue_name:         "The Footlight"
-  dt_start:           2018-10-14 12:00:00 -0400
-  dt_end:             2018-10-14 18:00:00 -0400
+#  dt_start:           2018-10-14 12:00:00 -0400
+#  dt_end:             2018-10-14 18:00:00 -0400
   applications_open:  2018-07-28 00:00:00 -0400
-  applications_close: 2018-09-07 00:00:00 -0400
+  applications_close: 2018-10-02 00:00:00 -0400
 last_event:
   venue_name:         "Trans-Pecos"
 
