@@ -113,8 +113,8 @@ title: Home
                 </table>
                 {% endif %}
                 <p>
-                    <a href="webcal://h2vx.com/ics/{{ page.url | absolute_url | url_encode }}"><img src="{{ "static/img/icon.calendar.svg" | relative_url }}" alt="Subscribe to {{ site.title }} events" width="20" /></a>
-                    <a href="http://h2vx.com/ics/{{ page.url | absolute_url | url_encode }}" title="Save an .ics file of the next event.">Add to Calendar</a>
+                    <a href="webcal://h2vx.com/ics/get-cal.php?uri={{ page.url | absolute_url | url_encode }}"><img src="{{ "static/img/icon.calendar.svg" | relative_url }}" alt="Subscribe to {{ site.title }} events" width="20" /></a>
+                    <a href="https://h2vx.com/ics/get-cal.php?uri={{ page.url | absolute_url | url_encode }}" title="Save an .ics file of the next event.">Add to Calendar</a>
                 </p>
             </div><!-- #next-event-banner -->
             <h3 id="fees-and-pricing">Fees and pricing</h3>
